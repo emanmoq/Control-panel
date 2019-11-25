@@ -1,0 +1,2084 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>Control Panel</title>
+    <meta charset="utf-8">
+    <link rel=icon href="asset/img/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="asset/css/icm.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/theme.css" type="text/css">
+    <script src="asset/js/script2.js" type="text/javascript"></script>
+    <script src="asset/js/script1.js"></script>
+    <script>
+        window.Res = {
+            "Common.Notification": "Alert",
+            "Common.Close": "Close",
+            "Common.On": "On",
+            "Common.OK": "OK",
+            "Common.Cancel": "Cancel",
+            "Common.Off": "Off",
+            "Products.Longdesc.More": "Show more",
+            "Products.Longdesc.Less": "Show less",
+            "Jquery.Validate.Email": "Please enter a valid email address.",
+            "Jquery.Validate.Required": "This field is required.",
+            "Jquery.Validate.Remote": "Please fix this field.",
+            "Jquery.Validate.Url": "Please enter a valid URL.",
+            "Jquery.Validate.Date": "Please enter a valid date.",
+            "Jquery.Validate.DateISO": "Please enter a valid date (ISO).",
+            "Jquery.Validate.Number": "Please enter a valid number.",
+            "Jquery.Validate.Digits": "Please enter only digits.",
+            "Jquery.Validate.Creditcard": "Please enter a valid credit card number.",
+            "Jquery.Validate.Equalto": "Please enter the same value again.",
+            "Jquery.Validate.Maxlength": "Please enter no more than {0} characters.",
+            "Jquery.Validate.Minlength": "Please enter at least {0} characters.",
+            "Jquery.Validate.Rangelength": "Please enter a value between {0} and {1} characters long.",
+            "jquery.Validate.Range": "Please enter a value between {0} and {1}.",
+            "Jquery.Validate.Max": "Please enter a value less than or equal to {0}.",
+            "Jquery.Validate.Min": "Please enter a value greater than or equal to {0}.",
+            "Admin.Common.AreYouSure": "Are you sure?",
+        };
+    </script>
+    <script>
+        try {
+            if (typeof navigator === 'undefined') navigator = {};
+            html = document.documentElement;
+            if (/Edge\/\d+/.test(navigator.userAgent)) { html.className += ' edge' }
+            else if ('mozMatchesSelector' in html) { html.className += ' moz' }
+            else if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) { html.className += ' ios' }
+            else if ('webkitMatchesSelector' in html) { html.className += ' wkit' };
+            html.className += (this.top === this.window ? ' not-' : ' ') + 'framed';
+        } catch (e) { }
+    </script>
+    <script>var ieMode = 0; try { if (document.documentMode) { ieMode = document.documentMode; html.className += ' ie iepost8 ie' + document.documentMode } else { html.className += ' not-ie' }; } catch (e) { }; navigator.isIE = ieMode</script>
+
+
+</head>
+
+<body>
+    <div id="page">
+
+        <div class="page-main">
+            <header id="header">
+
+
+
+                <nav id="navbar" class="navbar navbar-dark navbar-expand">
+
+                    <a class="navbar-brand mx-0 mr-3" href="/backend/Admin">
+
+                        <img class="navbar-img d-none d-lg-block"
+                            src="/backend/Administration/Content/images/smartstore.svg" alt="smartstore.NET" />
+                        <img class="navbar-img d-lg-none"
+                            src="/backend/Administration/Content/images/smartstore-icon.svg" alt="smartstore.NET" />
+                    </a>
+
+                    <div id="navbar-menu" class="collapse navbar-collapse mr-auto">
+
+
+
+
+                        <ul class="navbar-nav">
+                            <li data-id="nav-dashboard" class="nav-item dropdown d-none d-md-block">
+                                <a class="nav-link" href="/backend/Admin">
+                                    <i class="icm icm-icm icm-home navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Dashboard</span>
+                                </a>
+                            </li>
+                            <li data-id="nav-catalog" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-cube navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Catalog</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="categories-list">
+                                        <a class="dropdown-item" href="/backend/Admin/Category">
+                                            <i class='fa-fw fa fa-sitemap'></i>
+                                            Categories
+                                        </a>
+                                    </li>
+                                    <li data-id="products">
+                                        <a class="dropdown-item" href="/backend/Admin/Product/List">
+                                            <i class='fa-fw fa fa-cube'></i>
+                                            Manage products
+                                        </a>
+                                    </li>
+                                    <li data-id="products-bulk-edit">
+                                        <a class="dropdown-item" href="/backend/Admin/Product/BulkEdit">
+                                            <i class='fa-fw fa fa-cubes'></i>
+                                            Bulk edit products
+                                        </a>
+                                    </li>
+                                    <li data-id="reviews">
+                                        <a class="dropdown-item" href="/backend/Admin/ProductReview/List">
+                                            <i class='fa-fw far fa-star-half'></i>
+                                            Product reviews
+                                        </a>
+                                    </li>
+                                    <li data-id="manufacturers">
+                                        <a class="dropdown-item" href="/backend/Admin/Manufacturer/List">
+                                            <i class='fa-fw far fa-building'></i>
+                                            Manufacturers
+                                        </a>
+                                    </li>
+                                    <li data-id="tags">
+                                        <a class="dropdown-item" href="/backend/Admin/Product/ProductTags">
+                                            <i class='fa-fw fa fa-tags'></i>
+                                            Product tags
+                                        </a>
+                                    </li>
+                                    <li data-id="stockreport">
+                                        <a class="dropdown-item" href="/backend/Admin/Product/LowStockReport">
+                                            <i class='fa-fw fa fa-sort-numeric-down'></i>
+                                            Low stock report
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="attributes-header" class="dropdown-header h6">Attributes</li>
+                                    <li data-id="attributes">
+                                        <a class="dropdown-item" href="/backend/Admin/ProductAttribute/List">
+                                            <i class='fa-fw far fa-list-alt'></i>
+                                            Product Attributes
+                                        </a>
+                                    </li>
+                                    <li data-id="specification-attributes">
+                                        <a class="dropdown-item" href="/backend/Admin/SpecificationAttribute/List">
+                                            <i class='fa-fw fa fa-list'></i>
+                                            Specification Attributes
+                                        </a>
+                                    </li>
+                                    <li data-id="checkout-attributes">
+                                        <a class="dropdown-item" href="/backend/Admin/CheckoutAttribute/List">
+                                            <i class='fa-fw fa fa-list'></i>
+                                            Checkout Attributes
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-sales" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-chart-growth navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Sales</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="orders">
+                                        <a class="dropdown-item" href="/backend/Admin/Order/List">
+                                            <i class='fa-fw far fa-chart-bar'></i>
+                                            Orders
+                                        </a>
+                                    </li>
+                                    <li data-id="shipments">
+                                        <a class="dropdown-item" href="/backend/Admin/Order/ShipmentList">
+                                            <i class='fa-fw fa fa-truck-moving fa-flip-horizontal'></i>
+                                            Shipments
+                                        </a>
+                                    </li>
+                                    <li data-id="recurring-payments">
+                                        <a class="dropdown-item" href="/backend/Admin/RecurringPayment/List">
+                                            <i class='fa-fw fa fa-redo'></i>
+                                            Recurring payments
+                                        </a>
+                                    </li>
+                                    <li data-id="return-requests">
+                                        <a class="dropdown-item" href="/backend/Admin/ReturnRequest/List">
+                                            <i class='fa-fw fa fa-truck-moving'></i>
+                                            Return requests
+                                        </a>
+                                    </li>
+                                    <li data-id="gift-cards">
+                                        <a class="dropdown-item" href="/backend/Admin/GiftCard/List">
+                                            <i class='fa-fw fa fa-gifts'></i>
+                                            Gift cards
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="shopping-carts">
+                                        <a class="dropdown-item" href="/backend/Admin/ShoppingCart/CurrentCarts">
+                                            <i class='fa-fw fa fa-cart-arrow-down'></i>
+                                            Current shopping carts
+                                        </a>
+                                    </li>
+                                    <li data-id="wishlists">
+                                        <a class="dropdown-item" href="/backend/Admin/ShoppingCart/CurrentWishlists">
+                                            <i class='fa-fw far fa-heart'></i>
+                                            Current wishlists
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="bestsellers">
+                                        <a class="dropdown-item" href="/backend/Admin/Order/BestsellersReport">
+                                            <i class='fa-fw far fa-thumbs-up'></i>
+                                            Bestsellers
+                                        </a>
+                                    </li>
+                                    <li data-id="flopsellers">
+                                        <a class="dropdown-item" href="/backend/Admin/Order/NeverSoldReport">
+                                            <i class='fa-fw far fa-thumbs-down'></i>
+                                            Products never purchased
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-users" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-users2 navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Customers</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="customers">
+                                        <a class="dropdown-item" href="/backend/Admin/Customer/List">
+                                            <i class='fa-fw fa fa-user-alt'></i>
+                                            Customers
+                                        </a>
+                                    </li>
+                                    <li data-id="customer-roles">
+                                        <a class="dropdown-item" href="/backend/Admin/CustomerRole/List">
+                                            <i class='fa-fw fa fa-users'></i>
+                                            Customer roles
+                                        </a>
+                                    </li>
+                                    <li data-id="online-customers">
+                                        <a class="dropdown-item" href="/backend/Admin/OnlineCustomer/List">
+                                            <i class='fa-fw fa fa-sign-in-alt'></i>
+                                            Online customers
+                                        </a>
+                                    </li>
+                                    <li data-id="customer-reports">
+                                        <a class="dropdown-item" href="/backend/Admin/Customer/Reports">
+                                            <i class='fa-fw far fa-chart-bar'></i>
+                                            Customer reports
+                                        </a>
+                                    </li>
+                                    <li data-id="external-auth">
+                                        <a class="dropdown-item" href="/backend/Admin/ExternalAuthentication/Providers">
+                                            <i class='fa-fw fab fa-facebook-square'></i>
+                                            External authentication methods
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="activity-log">
+                                        <a class="dropdown-item" href="/backend/Admin/ActivityLog/ListLogs">
+                                            <i class='fa-fw far fa-eye'></i>
+                                            Activity Log
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-promotions" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-bullhorn navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Promotions</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="discounts">
+                                        <a class="dropdown-item" href="/backend/Admin/Discount/List">
+                                            <i class='fa-fw fa fa-signal fa-flip-horizontal'></i>
+                                            Discounts
+                                        </a>
+                                    </li>
+                                    <li data-id="affiliates">
+                                        <a class="dropdown-item" href="/backend/Admin/Affiliate/List">
+                                            <i class='fa-fw fa fa-user-friends'></i>
+                                            Affiliates
+                                        </a>
+                                    </li>
+                                    <li data-id="newsletter-subscribers">
+                                        <a class="dropdown-item" href="/backend/Admin/NewsLetterSubscription/List">
+                                            <i class='fa-fw fa fa-envelope'></i>
+                                            Newsletter Subscribers
+                                        </a>
+                                    </li>
+                                    <li data-id="campaigns">
+                                        <a class="dropdown-item" href="/backend/Admin/Campaign/List">
+                                            <i class='fa-fw fa fa-bullhorn'></i>
+                                            Campaigns
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-cms" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-site-map navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">CMS</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="topics">
+                                        <a class="dropdown-item" href="/backend/Admin/Topic/List">
+                                            <i class='fa-fw far fa-file-alt'></i>
+                                            Topics
+                                        </a>
+                                    </li>
+                                    <li data-id="3519259093">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.PageBuilder">
+                                            <i class='fa-fw fa fa-th-large'></i>
+                                            Page Builder
+                                        </a>
+                                    </li>
+                                    <li data-id="menus">
+                                        <a class="dropdown-item" href="/backend/Admin/Menu/List">
+                                            <i class='fa-fw far fa-stream'></i>
+                                            Menus
+                                        </a>
+                                    </li>
+                                    <li data-id="news" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw far fa-newspaper'></i>
+                                            News
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="news-items">
+                                                <a class="dropdown-item" href="/backend/Admin/News/List">
+                                                    News items
+                                                </a>
+                                            </li>
+                                            <li data-id="news-comments">
+                                                <a class="dropdown-item" href="/backend/Admin/News/Comments">
+                                                    News comments
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="blog" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw fa fa-blog'></i>
+                                            Blog
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="blog-posts">
+                                                <a class="dropdown-item" href="/backend/Admin/Blog/List">
+                                                    Blog posts
+                                                </a>
+                                            </li>
+                                            <li data-id="blog-comments">
+                                                <a class="dropdown-item" href="/backend/Admin/Blog/Comments">
+                                                    Blog comments
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="forums">
+                                        <a class="dropdown-item" href="/backend/Admin/Forum/List">
+                                            <i class='fa-fw fa fa-users'></i>
+                                            Forums
+                                        </a>
+                                    </li>
+                                    <li data-id="message-templates">
+                                        <a class="dropdown-item" href="/backend/Admin/MessageTemplate/List">
+                                            <i class='fa-fw far fa-envelope'></i>
+                                            Message templates
+                                        </a>
+                                    </li>
+                                    <li data-id="polls">
+                                        <a class="dropdown-item" href="/backend/Admin/Poll/List">
+                                            <i class='fa-fw fa fa-tasks'></i>
+                                            Polls
+                                        </a>
+                                    </li>
+                                    <li data-id="widgets">
+                                        <a class="dropdown-item" href="/backend/Admin/Widget/Providers">
+                                            <i class='fa-fw fa fa-plus-square'></i>
+                                            Widgets
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-configuration" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-equalizer navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Configuration</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="settings" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw fa fa-sliders-h'></i>
+                                            Settings
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="general-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/GeneralCommon">
+                                                    General and miscellaneous settings
+                                                </a>
+                                            </li>
+                                            <li data-id="catalog-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Catalog">
+                                                    Catalog settings
+                                                </a>
+                                            </li>
+                                            <li data-id="search-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Search">
+                                                    Search
+                                                </a>
+                                            </li>
+                                            <li data-id="customer-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/CustomerUser">
+                                                    Customer settings
+                                                </a>
+                                            </li>
+                                            <li data-id="cart-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/ShoppingCart">
+                                                    Shopping cart settings
+                                                </a>
+                                            </li>
+                                            <li data-id="order-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Order">
+                                                    Order settings
+                                                </a>
+                                            </li>
+                                            <li data-id="payment-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Payment">
+                                                    Payment
+                                                </a>
+                                            </li>
+                                            <li data-id="media-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Media">
+                                                    Media settings
+                                                </a>
+                                            </li>
+                                            <li data-id="tax-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Tax">
+                                                    Tax settings
+                                                </a>
+                                            </li>
+                                            <li data-id="shipping-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Shipping">
+                                                    Shipping settings
+                                                </a>
+                                            </li>
+                                            <li data-id="reward-points-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/RewardPoints">
+                                                    Reward points
+                                                </a>
+                                            </li>
+                                            <li data-id="blog-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Blog">
+                                                    Blog settings
+                                                </a>
+                                            </li>
+                                            <li data-id="news-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/News">
+                                                    News settings
+                                                </a>
+                                            </li>
+                                            <li data-id="forum-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Forum">
+                                                    Forum settings
+                                                </a>
+                                            </li>
+                                            <li data-id="dataexchange-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/DataExchange">
+                                                    Data exchange
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider"></li>
+                                            <li data-id="all-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/AllSettings">
+                                                    All settings (advanced)
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="stores">
+                                        <a class="dropdown-item" href="/backend/Admin/Store/List">
+                                            <i class='fa-fw fa fa-globe'></i>
+                                            Stores
+                                        </a>
+                                    </li>
+                                    <li data-id="regional-settings" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw fa fa-language'></i>
+                                            Regional Settings
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="countries">
+                                                <a class="dropdown-item" href="/backend/Admin/Country/List">
+                                                    Countries
+                                                </a>
+                                            </li>
+                                            <li data-id="languages">
+                                                <a class="dropdown-item" href="/backend/Admin/Language/List">
+                                                    Languages
+                                                </a>
+                                            </li>
+                                            <li data-id="currencies">
+                                                <a class="dropdown-item" href="/backend/Admin/Currency/List">
+                                                    Currencies
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider"></li>
+                                            <li data-id="shipping-header" class="dropdown-header h6">Shipping</li>
+                                            <li data-id="shipping-methods">
+                                                <a class="dropdown-item" href="/backend/Admin/Shipping/Methods">
+                                                    Shipping methods
+                                                </a>
+                                            </li>
+                                            <li data-id="shipping-providers">
+                                                <a class="dropdown-item" href="/backend/Admin/Shipping/Providers">
+                                                    Shipping rate computation methods
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider"></li>
+                                            <li data-id="tax-header" class="dropdown-header h6">Tax</li>
+                                            <li data-id="tax-providers">
+                                                <a class="dropdown-item" href="/backend/Admin/Tax/Providers">
+                                                    Tax providers
+                                                </a>
+                                            </li>
+                                            <li data-id="tax-categories">
+                                                <a class="dropdown-item" href="/backend/Admin/Tax/Categories">
+                                                    Tax categories
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="payment-methods">
+                                        <a class="dropdown-item" href="/backend/Admin/Payment/Providers">
+                                            <i class='fa-fw far fa-credit-card'></i>
+                                            Payment methods
+                                        </a>
+                                    </li>
+                                    <li data-id="list-settings" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw fa fa-bars'></i>
+                                            Lists
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="delivery-times">
+                                                <a class="dropdown-item" href="/backend/Admin/DeliveryTime/List">
+                                                    Delivery Times
+                                                </a>
+                                            </li>
+                                            <li data-id="quantity-units">
+                                                <a class="dropdown-item" href="/backend/Admin/QuantityUnit/List">
+                                                    Quantity units
+                                                </a>
+                                            </li>
+                                            <li data-id="weights">
+                                                <a class="dropdown-item" href="/backend/Admin/Measure/Weights">
+                                                    Weights
+                                                </a>
+                                            </li>
+                                            <li data-id="dimensions">
+                                                <a class="dropdown-item" href="/backend/Admin/Measure/Dimensions">
+                                                    Dimensions
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="email-accounts">
+                                        <a class="dropdown-item" href="/backend/Admin/EmailAccount/List">
+                                            <i class='fa-fw fa fa-envelope'></i>
+                                            Email Accounts
+                                        </a>
+                                    </li>
+                                    <li data-id="activity-types">
+                                        <a class="dropdown-item" href="/backend/Admin/ActivityLog/ListTypes">
+                                            <i class='fa-fw fa fa-eye'></i>
+                                            Activity Types
+                                        </a>
+                                    </li>
+                                    <li data-id="acl">
+                                        <a class="dropdown-item" href="/backend/Admin/Security/Permissions">
+                                            <i class='fa-fw fa fa-lock'></i>
+                                            Access control list
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="import">
+                                        <a class="dropdown-item" href="/backend/Admin/Import/List">
+                                            <i class='fa-fw fa fa-download '></i>
+                                            Import
+                                        </a>
+                                    </li>
+                                    <li data-id="export">
+                                        <a class="dropdown-item" href="/backend/Admin/Export/List">
+                                            <i class='fa-fw fa fa-upload '></i>
+                                            Export
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="themes">
+                                        <a class="dropdown-item" href="/backend/Admin/Theme/List">
+                                            <i class='fa-fw fa fa-fill-drip'></i>
+                                            Themes
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-system" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-database navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">System</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="system-log">
+                                        <a class="dropdown-item" href="/backend/Admin/Log/List">
+                                            <i class='fa-fw fa fa-fire'></i>
+                                            Log
+                                        </a>
+                                    </li>
+                                    <li data-id="queued-emails">
+                                        <a class="dropdown-item" href="/backend/Admin/QueuedEmail/List">
+                                            <i class='fa-fw fa fa-mail-bulk'></i>
+                                            Message Queue
+                                        </a>
+                                    </li>
+                                    <li data-id="maintenance">
+                                        <a class="dropdown-item" href="/backend/Admin/Common/Maintenance">
+                                            <i class='fa-fw fa fa-database'></i>
+                                            Maintenance
+                                        </a>
+                                    </li>
+                                    <li data-id="scheduled tasks">
+                                        <a class="dropdown-item" href="/backend/Admin/ScheduleTask/List">
+                                            <i class='fa-fw far fa-clock'></i>
+                                            Scheduled Tasks
+                                        </a>
+                                    </li>
+                                    <li data-id="seo-names">
+                                        <a class="dropdown-item" href="/backend/Admin/UrlRecord/List">
+                                            <i class='fa-fw fa fa-search'></i>
+                                            SEO Names
+                                        </a>
+                                    </li>
+                                    <li data-id="warnings">
+                                        <a class="dropdown-item" href="/backend/Admin/Common/Warnings">
+                                            <i class='fa-fw fa fa-exclamation-triangle'></i>
+                                            Warnings
+                                        </a>
+                                    </li>
+                                    <li data-id="system-info">
+                                        <a class="dropdown-item" href="/backend/Admin/Common/SystemInfo">
+                                            <i class='fa-fw fa fa-info-circle'></i>
+                                            System information
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-plugins" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-puzzle navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Plugins</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="8609468245">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Clickatell">
+                                            <i class='fa-fw far fa-paper-plane'></i>
+                                            Clickatell SMS Provider
+                                        </a>
+                                    </li>
+                                    <li data-id="2151945228">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.GDPR">
+                                            <i class='fa-fw fa fa-user-secret'></i>
+                                            GDPR
+                                        </a>
+                                    </li>
+                                    <li data-id="4772826916">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.MegaSearch">
+                                            <i class='fa-fw fa fa-search'></i>
+                                            MegaSearch
+                                        </a>
+                                    </li>
+                                    <li data-id="5739591143">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Azure">
+                                            <i class='fa-fw fab fa-windows'></i>
+                                            Microsoft Azure Services
+                                        </a>
+                                    </li>
+                                    <li data-id="0052319998">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.TinyImage">
+                                            <i class='fa-fw fa fa-compress-arrows-alt'></i>
+                                            TinyImage
+                                        </a>
+                                    </li>
+                                    <li data-id="9671908711">
+                                        <a class="dropdown-item" href="/backend/Plugins/SmartStore.SearchLog/List">
+                                            <i class='fa-fw fa fa-search'></i>
+                                            Search Log
+                                        </a>
+                                    </li>
+                                    <li data-id="9908058660">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Mailchimp">
+                                            <i class='fa-fw fab fa-mailchimp'></i>
+                                            MailChimp e-mail synchronization
+                                        </a>
+                                    </li>
+                                    <li data-id="3488742587">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.DevTools">
+                                            <i class='fa-fw far fa-terminal'></i>
+                                            Developer Tools
+                                        </a>
+                                    </li>
+                                    <li data-id="3693699294">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.OutputCache">
+                                            <i class='fa-fw far fa-hdd'></i>
+                                            Output Cache
+                                        </a>
+                                    </li>
+                                    <li data-id="0302310728">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.OrderNumberFormatter">
+                                            <i class='fa-fw far fa-file'></i>
+                                            Number Formatter
+                                        </a>
+                                    </li>
+                                    <li data-id="3239557935">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.GoogleMerchantCenter">
+                                            <i class='fa-fw fab fa-google'></i>
+                                            Google Merchant Center feed
+                                        </a>
+                                    </li>
+                                    <li data-id="8393839620">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.BizImporter">
+                                            <i class='fa-fw'></i>
+                                            SmartStore.biz Importer
+                                        </a>
+                                    </li>
+                                    <li data-id="6561093546">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Debitoor">
+                                            <i class='fa-fw fas fa-receipt'></i>
+                                            Debitoor
+                                        </a>
+                                    </li>
+                                    <li data-id="3420303080">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.ContentSlider">
+                                            <i class='fa-fw far fa-images'></i>
+                                            Content Slider
+                                        </a>
+                                    </li>
+                                    <li data-id="1994674640">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.MegaMenu">
+                                            <i class='fa-fw far fa-list-alt'></i>
+                                            Mega Menu
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="plugins-manage">
+                                        <a class="dropdown-item" href="/backend/Admin/Plugin/List">
+                                            <i class='fa-fw fa fa-puzzle-piece'></i>
+                                            Manage plugins
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+
+                    <div class="collapse navbar-collapse ml-auto">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle navbar-tool" href="javascript:void(0)"
+                                    title='Actions' data-toggle="dropdown">
+                                    <i class="icm icm-cog navbar-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="http://demo.smartstore.com/backend/"
+                                        title="Public store - SmartStore.NET Demo Shop">
+                                        <i class="fa fa-fw fa-globe"></i>
+                                        SmartStore.NET Demo Shop
+                                    </a>
+                                    <a class="dropdown-item" href="http://demo.smartstore.com/backend/"
+                                        title="Public store - SmartStore.NET Demo-Shop 2">
+                                        <i class="fa fa-fw fa-globe"></i>
+                                        SmartStore.NET Demo-Shop 2
+                                    </a>
+                                    <a class="dropdown-item" href='/backend/Admin/Theme/Preview'>
+                                        <i class="far fa-fw fa-eye"></i>
+                                        Preview Mode
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item"
+                                        href="/backend/Admin/Common/ClearCache?previousUrl=%2Fbackend%2FAdmin%2FScheduleTask%2FList">
+                                        <i class="far fa-fw fa-trash-alt"></i>
+                                        Clear cache
+                                    </a>
+                                    <a class="dropdown-item"
+                                        href="/backend/Admin/Common/ClearDatabaseCache?previousUrl=%2Fbackend%2FAdmin%2FScheduleTask%2FList">
+                                        <i class="fa fa-fw"></i>
+                                        Clear database cache
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" id="restart-application" href="#"
+                                        data-url="/backend/Admin/Common/RestartApplication?previousUrl=%2Fbackend%2FAdmin%2FScheduleTask%2FList">
+                                        <i class="fa fa-fw fa-power-off"></i>
+                                        Restart application
+                                    </a>
+                                </div>
+                            </li>
+
+                            <form action="/backend/Admin/Common/LanguageSelected" class="hide" data-ajax="true"
+                                data-ajax-complete="onLanguageChangedRequestCompleted();" id="form-languageselector"
+                                method="post"><input id="customerlanguage" name="customerlanguage" type="hidden"
+                                    value="2" /></form>
+                            <li class="nav-item dropdown d-none d-md-block">
+                                <a class="nav-link dropdown-toggle navbar-tool" href="javascript:void(0)"
+                                    title='English' data-toggle="dropdown">
+                                    <i class="icm icm-earth navbar-icon"></i>
+                                    <span class="pl-2">EN</span>
+                                </a>
+                                <div id="language-selector" class="dropdown-menu dropdown-menu-right">
+                                    <a href="javascript:void(0)" data-lang-id='1' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/de.png' alt="Deutsch" />
+                                        Deutsch
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='2' class="dropdown-item disabled">
+                                        <img src='/backend/Content/Images/flags/us.png' alt="English" />
+                                        English
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='3' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/nl.png' alt="Dutch" />
+                                        Dutch
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='4' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/fr.png' alt="French" />
+                                        French
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='5' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/ru.png' alt="Russian" />
+                                        Russian
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='6' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/jp.png' alt="Japanese" />
+                                        Japanese
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='7' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/es.png' alt="Espa&#241;ol" />
+                                        Espa&#241;ol
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='8' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/sa.png' alt="Arabic (Saudi Arabia)" />
+                                        Arabic (Saudi Arabia)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='9' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/in.png' alt="Hindi (India)" />
+                                        Hindi (India)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='10' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/tr.png' alt="Turkish (Turkey)" />
+                                        Turkish (Turkey)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='11' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/cn.png'
+                                            alt="Chinese (Simplified, PRC)" />
+                                        Chinese (Simplified, PRC)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='12' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/it.png' alt="Italian (Italy)" />
+                                        Italian (Italy)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='13' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/pl.png' alt="Polish (Poland)" />
+                                        Polish (Poland)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='14' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/pt.png' alt="Portuguese (Portugal)" />
+                                        Portuguese (Portugal)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='15' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/gr.png' alt="Greek (Greece)" />
+                                        Greek (Greece)
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <a href="/backend/Admin/Language/List" class="dropdown-item manage-languages">
+                                        Manage languages
+                                    </a>
+                                </div>
+                            </li>
+                            <script>
+                                $(document).ready(function () {
+                                    $("#language-selector > .dropdown-item:not(.disabled, .manage-languages)").on('click', function () {
+                                        var el = $(this);
+                                        var langId = el.data("lang-id");
+                                        $("#customerlanguage").val(langId);
+                                        $("#form-languageselector").submit();
+                                    });
+                                });
+
+                                function onLanguageChangedRequestCompleted() {
+                                    location.reload();
+                                }
+                            </script>
+
+
+                            <li id="navtool-help" class="nav-item dropdown d-none d-md-block">
+                                <a class="nav-link dropdown-toggle navbar-tool" href="javascript:void(0)" title='Help'
+                                    data-toggle="dropdown">
+                                    <i class="icm icm-bubble-question navbar-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="https://docs.smartstore.com/display/SMNET32/"
+                                        data-lang="en" target="help">
+                                        <i class="fa fa-fw fa-book"></i>
+                                        Documentation
+                                    </a>
+                                    <a class="dropdown-item"
+                                        href="http://community.smartstore.com/index.php?/&amp;k=880ea6a14ea49e853634fbdc5015a024&amp;setlanguage=1&amp;cal_id=&amp;langid=1"
+                                        data-lang="en" target="help">
+                                        <i class="fa fa-fw fa-comment"></i>
+                                        Community
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/backend/Admin/Home/About">
+                                        <i class="fa fa-fw fa-info-circle"></i>
+                                        About SmartStore.NET
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown ml-md-3">
+                                <a id="current-user" class="nav-link dropdown-toggle navbar-tool" data-toggle="dropdown"
+                                    title="demo" href='/backend/Admin/Customer/Edit/55040'>
+
+                                    <i class="icm icm-user navbar-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="/backend/Admin/Customer/Edit/55040">
+                                        <i class="fa fa-fw fa-user"></i>
+                                        Account
+                                    </a>
+                                    <a class="dropdown-item" href="/backend/logout">
+                                        <i class="fal fa-fw fa-sign-out-alt"></i>
+                                        Logout?
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </nav>
+
+
+                <script type="text/javascript">
+
+                    $(function () {
+
+                        $("#restart-application").on('click', function (e) {
+                            e.preventDefault();
+                            $.throbber.show({
+                                message: "Restarting the application...",
+                                callback: function () {
+                                    setLocation($(e.target).data("url"));
+
+                                }
+                            });
+                            return false;
+                        });
+
+                        // add mainmenu tooltips;
+                        $('#tools [rel=tooltip]').tooltip({
+                            placement: 'bottom'
+                        });
+
+                    });
+
+                </script>
+
+
+                <div id="breadcrumb">
+                    <!-- SiteMapPath here-->
+
+                </div>
+            </header>
+
+
+
+            <div id="content">
+                <div class="cph">
+
+
+
+                    <div class="section-header">
+                        <div class="title">
+                            <i class="far fa-clock"></i>
+                            Scheduled Tasks
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table admin-table" id="schedule-tasks-grid">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th class="text-center">Enabled</th>
+                                    <th>Cron Expression</th>
+                                    <th style="min-width: 150px">Last Run</th>
+                                    <th>Next Run in</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-task-id='7' class=''>
+                                    <td>
+                                        <a href='editTask.html'>E-Mail Queue bereinigen</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-true'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 2 * * *</div>
+                                        <div class="muted">At 02:00 AM</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div>11/26/2019 2:00 AM</div>
+                                            <div class="muted">14 h 54 min</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='7'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/7' data-task-id='7'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/7' data-task-id='7'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='8' class=''>
+                                    <td>
+                                        <a href='editTask.html'>Tempor&#228;re Dateien
+                                            bereinigen</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-true'></i>
+                                    </td>
+                                    <td>
+                                        <div>30 3 * * *</div>
+                                        <div class="muted">At 03:30 AM</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div>11/26/2019 3:30 AM</div>
+                                            <div class="muted">16 h 24 min</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='8'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/8' data-task-id='8'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/8' data-task-id='8'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='27' class=''>
+                                    <td>
+                                        <a href='editTask.html/27'>Indexaktualisierung der
+                                            Volltextsuche</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-true'></i>
+                                    </td>
+                                    <td>
+                                        <div>*/30 * * * *</div>
+                                        <div class="muted">Every 30 minutes</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div>11/25/2019 11:00 AM</div>
+                                            <div class="muted">5 minutes ago</div>
+                                            <div><span>Duration: </span> <span class="muted">0:00:00.017</span></div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div>11/25/2019 11:30 AM</div>
+                                            <div class="muted">24 min 27 sec</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='27'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/27' data-task-id='27'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/27' data-task-id='27'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='1' class=''>
+                                    <td>
+                                        <a href='editTask.html/1'>E-Mail senden</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-true'></i>
+                                    </td>
+                                    <td>
+                                        <div>* * * * *</div>
+                                        <div class="muted">Every minute</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div>11/25/2019 11:05 AM</div>
+                                            <div class="muted">31 seconds ago</div>
+                                            <div><span>Duration: </span> <span class="muted">0:00:00.04</span></div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div>11/25/2019 11:06 AM</div>
+                                            <div class="muted">27 sec</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='1'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/1' data-task-id='1'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/1' data-task-id='1'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='2' class=''>
+                                    <td>
+                                        <a href='editTask.html/2'>Gastbenutzer l&#246;schen</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-true'></i>
+                                    </td>
+                                    <td>
+                                        <div>*/10 * * * *</div>
+                                        <div class="muted">Every 10 minutes</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div>11/25/2019 11:00 AM</div>
+                                            <div class="muted">5 minutes ago</div>
+                                            <div><span>Duration: </span> <span class="muted">0:00:00.037</span></div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div>11/25/2019 11:10 AM</div>
+                                            <div class="muted">4 min 27 sec</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='2'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/2' data-task-id='2'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/2' data-task-id='2'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='3' class=''>
+                                    <td>
+                                        <a href='editTask.html/3'>Delete logs</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-true'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 1 * * *</div>
+                                        <div class="muted">At 01:00 AM</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div>11/26/2019 1:00 AM</div>
+                                            <div class="muted">13 h 54 min</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='3'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/3' data-task-id='3'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/3' data-task-id='3'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='39' class=''>
+                                    <td>
+                                        <a href='editTask.html/39'>Santander Zahlungsstatus
+                                            abrufen</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-true'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 */1 * * *</div>
+                                        <div class="muted">Every hour</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div>11/25/2019 11:00 AM</div>
+                                            <div class="muted">5 minutes ago</div>
+                                            <div><span>Duration: </span> <span class="muted">0:00:00.02</span></div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div>11/25/2019 12:00 PM</div>
+                                            <div class="muted">54 min 27 sec</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='39'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/39' data-task-id='39'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/39' data-task-id='39'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='37' class=''>
+                                    <td>
+                                        <a href='editTask.html'>Remove expired output cache items
+                                            from database</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-true'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 */1 * * *</div>
+                                        <div class="muted">Every hour</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div>11/25/2019 11:00 AM</div>
+                                            <div class="muted">5 minutes ago</div>
+                                            <div><span>Duration: </span> <span class="muted">0:00:00.017</span></div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div>11/25/2019 12:00 PM</div>
+                                            <div class="muted">54 min 27 sec</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='37'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/37' data-task-id='37'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/37' data-task-id='37'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='43' class=''>
+                                    <td>
+                                        <a href='editTask.html/43'>Forum Suchindex aktualisieren</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-true'></i>
+                                    </td>
+                                    <td>
+                                        <div>*/5 * * * *</div>
+                                        <div class="muted">Every 5 minutes</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div>11/25/2019 11:05 AM</div>
+                                            <div class="muted">31 seconds ago</div>
+                                            <div><span>Duration: </span> <span class="muted">0:00:00.01</span></div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div>11/25/2019 11:10 AM</div>
+                                            <div class="muted">4 min 27 sec</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='43'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/43' data-task-id='43'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/43' data-task-id='43'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='38' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html/38'>Trusted Shops Review Import</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 4 * * *</div>
+                                        <div class="muted">At 04:00 AM</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='38'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/38' data-task-id='38'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/38' data-task-id='38'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='40' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html'>Review Reminder</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 */24 * * *</div>
+                                        <div class="muted">Every 24 hours</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='40'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/40' data-task-id='40'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/40' data-task-id='40'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='41' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html'>Basket Reminder</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 */24 * * *</div>
+                                        <div class="muted">Every 24 hours</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='41'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/41' data-task-id='41'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/41' data-task-id='41'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='42' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html'>Visit Reminder</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 */24 * * *</div>
+                                        <div class="muted">Every 24 hours</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='42'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/42' data-task-id='42'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/42' data-task-id='42'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='4' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html'>Cache bereinigen</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 */12 * * *</div>
+                                        <div class="muted">Every 12 hours</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='4'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html/4'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/4' data-task-id='4'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/4' data-task-id='4'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='5' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html/5'>Wechselkurse aktualisieren</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 */6 * * *</div>
+                                        <div class="muted">Every 6 hours</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='5'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html/5'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/5' data-task-id='5'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/5' data-task-id='5'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='6' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html/6'>Tempor&#228;re Uploads
+                                            bereinigen</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>30 1,13 * * *</div>
+                                        <div class="muted">At 01:30 AM and 01:30 PM</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='6'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html/6'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/6' data-task-id='6'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/6' data-task-id='6'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='28' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html/28'>SmartStore.AmazonPay data
+                                            polling</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>*/30 * * * *</div>
+                                        <div class="muted">Every 30 minutes</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='28'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html/28'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/28' data-task-id='28'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/28' data-task-id='28'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='22' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html/22'>SmartStore.NewsImporter news
+                                            importing</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>30 */12 * * *</div>
+                                        <div class="muted">At 30 minutes past the hour, every 12 hours</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='22'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html/22'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/22' data-task-id='22'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/22' data-task-id='22'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr data-task-id='25' class=' table-light'>
+                                    <td>
+                                        <a href='editTask.html/25'>MailChimp sync</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class='fa fa-fw icon-active-false'></i>
+                                    </td>
+                                    <td>
+                                        <div>0 */1 * * *</div>
+                                        <div class="muted">Every hour</div>
+                                    </td>
+                                    <!-- LastStart -->
+                                    <td style="min-width: 300px">
+                                        <div class="last-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+
+
+
+
+                                        </div>
+                                    </td>
+                                    <!-- NextRun -->
+                                    <td style="min-width: 150px">
+                                        <div class="next-run-info">
+
+
+                                            <div class="muted">Never</div>
+
+                                        </div>
+                                        <div class='task-progress text-muted hide' data-task-id='25'
+                                            data-running='false'></div>
+                                    </td>
+                                    <!-- Actions -->
+                                    <td class="omega text-truncate">
+                                        <a href='editTask.html/25'
+                                            class="btn btn-secondary btn-sm mb-1">Edit</a>
+                                        <a href='/backend/Admin/ScheduleTask/RunJob/25' data-task-id='25'
+                                            class='btn btn-success btn-sm mb-1 btn-run-task'>
+                                            Run now
+                                        </a>
+                                        <a href='/backend/Admin/ScheduleTask/CancelJob/25' data-task-id='25'
+                                            class='btn btn-danger btn-sm mb-1 btn-cancel-task hide'
+                                            onclick='return confirm("Are you sure?");'>
+                                            Cancel
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <script>
+                        $(function () {
+                            SmartStore.Admin.TaskWatcher.startWatching({
+                                context: $('#schedule-tasks-grid'),
+                                elementsSelector: '.task-progress',
+                                defaultProgressMessage: "Is running...",
+                                pollUrl: '/backend/Admin/ScheduleTask/GetRunningTasks',
+                                onTaskStarted: function (task, el) {
+                                    var tr = el.closest('tr');
+                                    tr.addClass('active-row');
+                                    tr.find('.btn-run-task').addClass('hide').next().removeClass('hide');
+                                    tr.find('.next-run-info').addClass('hide');
+                                },
+                                onTaskCompleted: function (taskId, el) {
+                                    var tr = el.closest('tr');
+                                    tr.removeClass('active-row').find('.btn-run-task').removeClass('hide').next().addClass('hide');
+                                    $.ajax({
+                                        cache: false,
+                                        global: false,
+                                        type: 'POST',
+                                        url: '/backend/Admin/ScheduleTask/GetTaskRunInfo',
+                                        data: { id: taskId },
+                                        success: function (data) {
+                                            tr.find('.next-run-info').html(data.nextRunHtml).removeClass("hide");
+                                            tr.find('.last-run-info').html(data.lastRunHtml);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    </script>
+
+
+                </div>
+                <div id="ajax-busy">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script src="asset/js/telerik.common.min.js"></script>
+    <script src="asset/js/telerik.textbox.min.js"></script>
+    <script src="asset/js/telerik.calendar.min.js"></script>
+    <script src="asset/js/telerik.datepicker.min.js"></script>
+    <script src="asset/js/fileUpload.js"></script>
+    <script src="asset/js/linkBuilder.js"></script>
+    <script src="asset/js/modernizr-custom.js"></script>
+
+    <script src="asset/js/main.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('#SearchMaxSentTries').tTextBox({ val: 10, step: 1, minValue: null, maxValue: null, digits: 0, groupSize: 3, negative: 1, text: 'Enter value', type: 'numeric' });
+            jQuery('#queuedEmails-grid').tGrid({ columns: [{ "attr": " style=\"text-align:center\"", "title": "\u003cinput id=\u0027mastercheckbox\u0027 type=\u0027checkbox\u0027/\u003e", "template": "\u003cinput type=\u0027checkbox\u0027 name=\u0027checkedRecords\u0027 value=\u0027\u003c#= Id #\u003e\u0027 class=\u0027checkboxGroups\u0027/\u003e", "member": "Id", "type": "Number" }, { "title": "Queued email ID", "template": "\u003ca href=\"Edit/\u003c#= Id #\u003e\"\u003e\u003c#= Id #\u003e\u003c/a\u003e", "member": "Id", "type": "Number" }, { "title": "Attachments Count", "member": "AttachmentsCount", "type": "Number" }, { "title": "Subject", "member": "Subject", "type": "String" }, { "attr": " align=\"center\"", "title": "Message Priority", "member": "Priority", "type": "Number" }, { "title": "From", "template": "\u003c#= From #\u003e", "member": "From", "type": "String" }, { "attr": " align=\"center\"", "title": "Only send manually", "template": "\u003ci class=\u0027fa fa-fw icon-active-\u003c#= SendManually #\u003e\u0027\u003e\u003c/i\u003e", "member": "SendManually", "type": "Boolean" }, { "attr": " align=\"center\"", "title": "Sent attempts", "member": "SentTries", "type": "Number" }, { "title": "Sent on", "member": "SentOn", "type": "Date" }, { "title": "Created on", "member": "CreatedOn", "type": "Date" }], pageSize: 25, total: 0, currentPage: 1, pageSizesInDropDown: ["5", "10", "20", "50"], pageOnScroll: false, ajax: { "selectUrl": "/backend/Admin/QueuedEmail/QueuedEmailList?queuedEmails-grid-size=25" }, onDataBinding: onDataBinding, onDataBound: onDataBound, onRowDataBound: onRowDataBound, localization: { "addNew": "Add new record", "delete": "Delete", "cancel": "Cancel", "update": "Update", "insert": "Insert", "edit": "Edit", "select": "Select", "page": "Page ", "displayingItems": "Displaying items {0} - {1} of {2}", "pageOf": "of {0}", "filter": "Filter", "filterAnd": "And", "filterClear": "Clear Filter", "filterDateEq": "Is equal to", "filterDateGe": "Is after or equal to", "filterDateGt": "Is after", "filterDateLe": "Is before or equal to", "filterDateLt": "Is before", "filterDateNe": "Is not equal to", "filterNumberEq": "Is equal to", "filterNumberGe": "Is greater than or equal to", "filterNumberGt": "Is greater than", "filterNumberLe": "Is less than or equal to", "filterNumberLt": "Is less than", "filterNumberNe": "Is not equal to", "filterShowRows": "Show rows with value that", "filterStringEndsWith": "Ends with", "filterStringEq": "Is equal to", "filterStringNe": "Is not equal to", "filterStringStartsWith": "Starts with", "filterStringSubstringOf": "Contains", "groupHint": "Drag a column header and drop it here to group by that column", "filterEnumEq": "Is equal to", "filterEnumNe": "Is not equal to", "deleteConfirmation": "Are you sure you want to delete this record?", "filterSelectValue": "-Select value-", "filterBoolIsFalse": "is false", "filterBoolIsTrue": "is true", "noRecords": "No records to display.", "cancelChanges": "Cancel changes", "saveChanges": "Save changes", "refresh": "Refresh", "sortedAsc": "sorted ascending", "sortedDesc": "sorted descending", "unGroup": "ungroup", "filterForeignKeyEq": "Is equal to", "filterForeignKeyNe": "Is not equal to", "filterStringNotSubstringOf": "Does not contain", "filterOr": "Or" }, noRecordsTemplate: 'No records to display.' });
+        });
+//]]>
+    </script>
+
+
+</body>
+
+</html>
