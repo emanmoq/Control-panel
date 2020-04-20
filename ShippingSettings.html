@@ -1,0 +1,1664 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>Control Panel</title>
+    <meta charset="utf-8">
+    <link rel=icon href="asset/img/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="asset/css/icm.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/theme.css" type="text/css">
+    <script src="asset/js/script2.js" type="text/javascript"></script>
+    <script src="asset/js/script1.js"></script>
+    <script>
+        window.Res = {
+            "Common.Notification": "Alert",
+            "Common.Close": "Close",
+            "Common.On": "On",
+            "Common.OK": "OK",
+            "Common.Cancel": "Cancel",
+            "Common.Off": "Off",
+            "Products.Longdesc.More": "Show more",
+            "Products.Longdesc.Less": "Show less",
+            "Jquery.Validate.Email": "Please enter a valid email address.",
+            "Jquery.Validate.Required": "This field is required.",
+            "Jquery.Validate.Remote": "Please fix this field.",
+            "Jquery.Validate.Url": "Please enter a valid URL.",
+            "Jquery.Validate.Date": "Please enter a valid date.",
+            "Jquery.Validate.DateISO": "Please enter a valid date (ISO).",
+            "Jquery.Validate.Number": "Please enter a valid number.",
+            "Jquery.Validate.Digits": "Please enter only digits.",
+            "Jquery.Validate.Creditcard": "Please enter a valid credit card number.",
+            "Jquery.Validate.Equalto": "Please enter the same value again.",
+            "Jquery.Validate.Maxlength": "Please enter no more than {0} characters.",
+            "Jquery.Validate.Minlength": "Please enter at least {0} characters.",
+            "Jquery.Validate.Rangelength": "Please enter a value between {0} and {1} characters long.",
+            "jquery.Validate.Range": "Please enter a value between {0} and {1}.",
+            "Jquery.Validate.Max": "Please enter a value less than or equal to {0}.",
+            "Jquery.Validate.Min": "Please enter a value greater than or equal to {0}.",
+            "Admin.Common.AreYouSure": "Are you sure?",
+        };
+    </script>
+    <script>
+        try {
+            if (typeof navigator === 'undefined') navigator = {};
+            html = document.documentElement;
+            if (/Edge\/\d+/.test(navigator.userAgent)) { html.className += ' edge' }
+            else if ('mozMatchesSelector' in html) { html.className += ' moz' }
+            else if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) { html.className += ' ios' }
+            else if ('webkitMatchesSelector' in html) { html.className += ' wkit' };
+            html.className += (this.top === this.window ? ' not-' : ' ') + 'framed';
+        } catch (e) { }
+    </script>
+    <script>var ieMode = 0; try { if (document.documentMode) { ieMode = document.documentMode; html.className += ' ie iepost8 ie' + document.documentMode } else { html.className += ' not-ie' }; } catch (e) { }; navigator.isIE = ieMode</script>
+
+
+</head>
+
+<body>
+    <div id="page">
+        <div class="page-main">
+            <header id="header">
+
+                <nav id="navbar" class="navbar navbar-dark navbar-expand">
+
+                    <a class="navbar-brand mx-0 mr-3" href="/backend/Admin">
+
+                        <img class="navbar-img d-none d-lg-block"
+                            src="/backend/Administration/Content/images/smartstore.svg" alt="smartstore.NET" />
+                        <img class="navbar-img d-lg-none"
+                            src="/backend/Administration/Content/images/smartstore-icon.svg" alt="smartstore.NET" />
+                    </a>
+
+                    <div id="navbar-menu" class="collapse navbar-collapse mr-auto">
+
+
+
+
+                        <ul class="navbar-nav">
+                            <li data-id="nav-dashboard" class="nav-item dropdown d-none d-md-block">
+                                <a class="nav-link" href="/backend/Admin">
+                                    <i class="icm icm-icm icm-home navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Dashboard</span>
+                                </a>
+                            </li>
+                            <li data-id="nav-catalog" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-cube navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Catalog</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="categories-list">
+                                        <a class="dropdown-item" href="/backend/Admin/Category">
+                                            <i class='fa-fw fa fa-sitemap'></i>
+                                            Categories
+                                        </a>
+                                    </li>
+                                    <li data-id="products">
+                                        <a class="dropdown-item" href="/backend/Admin/Product/List">
+                                            <i class='fa-fw fa fa-cube'></i>
+                                            Manage products
+                                        </a>
+                                    </li>
+                                    <li data-id="products-bulk-edit">
+                                        <a class="dropdown-item" href="/backend/Admin/Product/BulkEdit">
+                                            <i class='fa-fw fa fa-cubes'></i>
+                                            Bulk edit products
+                                        </a>
+                                    </li>
+                                    <li data-id="reviews">
+                                        <a class="dropdown-item" href="/backend/Admin/ProductReview/List">
+                                            <i class='fa-fw far fa-star-half'></i>
+                                            Product reviews
+                                        </a>
+                                    </li>
+                                    <li data-id="manufacturers">
+                                        <a class="dropdown-item" href="/backend/Admin/Manufacturer/List">
+                                            <i class='fa-fw far fa-building'></i>
+                                            Manufacturers
+                                        </a>
+                                    </li>
+                                    <li data-id="tags">
+                                        <a class="dropdown-item" href="/backend/Admin/Product/ProductTags">
+                                            <i class='fa-fw fa fa-tags'></i>
+                                            Product tags
+                                        </a>
+                                    </li>
+                                    <li data-id="stockreport">
+                                        <a class="dropdown-item" href="/backend/Admin/Product/LowStockReport">
+                                            <i class='fa-fw fa fa-sort-numeric-down'></i>
+                                            Low stock report
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="attributes-header" class="dropdown-header h6">Attributes</li>
+                                    <li data-id="attributes">
+                                        <a class="dropdown-item" href="/backend/Admin/ProductAttribute/List">
+                                            <i class='fa-fw far fa-list-alt'></i>
+                                            Product Attributes
+                                        </a>
+                                    </li>
+                                    <li data-id="specification-attributes">
+                                        <a class="dropdown-item" href="/backend/Admin/SpecificationAttribute/List">
+                                            <i class='fa-fw fa fa-list'></i>
+                                            Specification Attributes
+                                        </a>
+                                    </li>
+                                    <li data-id="checkout-attributes">
+                                        <a class="dropdown-item" href="/backend/Admin/CheckoutAttribute/List">
+                                            <i class='fa-fw fa fa-list'></i>
+                                            Checkout Attributes
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-sales" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-chart-growth navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Sales</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="orders">
+                                        <a class="dropdown-item" href="/backend/Admin/Order/List">
+                                            <i class='fa-fw far fa-chart-bar'></i>
+                                            Orders
+                                        </a>
+                                    </li>
+                                    <li data-id="shipments">
+                                        <a class="dropdown-item" href="/backend/Admin/Order/ShipmentList">
+                                            <i class='fa-fw fa fa-truck-moving fa-flip-horizontal'></i>
+                                            Shipments
+                                        </a>
+                                    </li>
+                                    <li data-id="recurring-payments">
+                                        <a class="dropdown-item" href="/backend/Admin/RecurringPayment/List">
+                                            <i class='fa-fw fa fa-redo'></i>
+                                            Recurring payments
+                                        </a>
+                                    </li>
+                                    <li data-id="return-requests">
+                                        <a class="dropdown-item" href="/backend/Admin/ReturnRequest/List">
+                                            <i class='fa-fw fa fa-truck-moving'></i>
+                                            Return requests
+                                        </a>
+                                    </li>
+                                    <li data-id="gift-cards">
+                                        <a class="dropdown-item" href="/backend/Admin/GiftCard/List">
+                                            <i class='fa-fw fa fa-gifts'></i>
+                                            Gift cards
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="shopping-carts">
+                                        <a class="dropdown-item" href="/backend/Admin/ShoppingCart/CurrentCarts">
+                                            <i class='fa-fw fa fa-cart-arrow-down'></i>
+                                            Current shopping carts
+                                        </a>
+                                    </li>
+                                    <li data-id="wishlists">
+                                        <a class="dropdown-item" href="/backend/Admin/ShoppingCart/CurrentWishlists">
+                                            <i class='fa-fw far fa-heart'></i>
+                                            Current wishlists
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="bestsellers">
+                                        <a class="dropdown-item" href="/backend/Admin/Order/BestsellersReport">
+                                            <i class='fa-fw far fa-thumbs-up'></i>
+                                            Bestsellers
+                                        </a>
+                                    </li>
+                                    <li data-id="flopsellers">
+                                        <a class="dropdown-item" href="/backend/Admin/Order/NeverSoldReport">
+                                            <i class='fa-fw far fa-thumbs-down'></i>
+                                            Products never purchased
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-users" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-users2 navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Customers</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="customers">
+                                        <a class="dropdown-item" href="/backend/Admin/Customer/List">
+                                            <i class='fa-fw fa fa-user-alt'></i>
+                                            Customers
+                                        </a>
+                                    </li>
+                                    <li data-id="customer-roles">
+                                        <a class="dropdown-item" href="/backend/Admin/CustomerRole/List">
+                                            <i class='fa-fw fa fa-users'></i>
+                                            Customer roles
+                                        </a>
+                                    </li>
+                                    <li data-id="online-customers">
+                                        <a class="dropdown-item" href="/backend/Admin/OnlineCustomer/List">
+                                            <i class='fa-fw fa fa-sign-in-alt'></i>
+                                            Online customers
+                                        </a>
+                                    </li>
+                                    <li data-id="customer-reports">
+                                        <a class="dropdown-item" href="/backend/Admin/Customer/Reports">
+                                            <i class='fa-fw far fa-chart-bar'></i>
+                                            Customer reports
+                                        </a>
+                                    </li>
+                                    <li data-id="external-auth">
+                                        <a class="dropdown-item" href="/backend/Admin/ExternalAuthentication/Providers">
+                                            <i class='fa-fw fab fa-facebook-square'></i>
+                                            External authentication methods
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="activity-log">
+                                        <a class="dropdown-item" href="/backend/Admin/ActivityLog/ListLogs">
+                                            <i class='fa-fw far fa-eye'></i>
+                                            Activity Log
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-promotions" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-bullhorn navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Promotions</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="discounts">
+                                        <a class="dropdown-item" href="/backend/Admin/Discount/List">
+                                            <i class='fa-fw fa fa-signal fa-flip-horizontal'></i>
+                                            Discounts
+                                        </a>
+                                    </li>
+                                    <li data-id="affiliates">
+                                        <a class="dropdown-item" href="/backend/Admin/Affiliate/List">
+                                            <i class='fa-fw fa fa-user-friends'></i>
+                                            Affiliates
+                                        </a>
+                                    </li>
+                                    <li data-id="newsletter-subscribers">
+                                        <a class="dropdown-item" href="/backend/Admin/NewsLetterSubscription/List">
+                                            <i class='fa-fw fa fa-envelope'></i>
+                                            Newsletter Subscribers
+                                        </a>
+                                    </li>
+                                    <li data-id="campaigns">
+                                        <a class="dropdown-item" href="/backend/Admin/Campaign/List">
+                                            <i class='fa-fw fa fa-bullhorn'></i>
+                                            Campaigns
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-cms" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-site-map navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">CMS</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="topics">
+                                        <a class="dropdown-item" href="/backend/Admin/Topic/List">
+                                            <i class='fa-fw far fa-file-alt'></i>
+                                            Topics
+                                        </a>
+                                    </li>
+                                    <li data-id="2046650779">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.PageBuilder">
+                                            <i class='fa-fw fa fa-th-large'></i>
+                                            Page Builder
+                                        </a>
+                                    </li>
+                                    <li data-id="menus">
+                                        <a class="dropdown-item" href="/backend/Admin/Menu/List">
+                                            <i class='fa-fw far fa-stream'></i>
+                                            Menus
+                                        </a>
+                                    </li>
+                                    <li data-id="news" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw far fa-newspaper'></i>
+                                            News
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="news-items">
+                                                <a class="dropdown-item" href="/backend/Admin/News/List">
+                                                    News items
+                                                </a>
+                                            </li>
+                                            <li data-id="news-comments">
+                                                <a class="dropdown-item" href="/backend/Admin/News/Comments">
+                                                    News comments
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="blog" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw fa fa-blog'></i>
+                                            Blog
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="blog-posts">
+                                                <a class="dropdown-item" href="/backend/Admin/Blog/List">
+                                                    Blog posts
+                                                </a>
+                                            </li>
+                                            <li data-id="blog-comments">
+                                                <a class="dropdown-item" href="/backend/Admin/Blog/Comments">
+                                                    Blog comments
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="forums">
+                                        <a class="dropdown-item" href="/backend/Admin/Forum/List">
+                                            <i class='fa-fw fa fa-users'></i>
+                                            Forums
+                                        </a>
+                                    </li>
+                                    <li data-id="message-templates">
+                                        <a class="dropdown-item" href="/backend/Admin/MessageTemplate/List">
+                                            <i class='fa-fw far fa-envelope'></i>
+                                            Message templates
+                                        </a>
+                                    </li>
+                                    <li data-id="polls">
+                                        <a class="dropdown-item" href="/backend/Admin/Poll/List">
+                                            <i class='fa-fw fa fa-tasks'></i>
+                                            Polls
+                                        </a>
+                                    </li>
+                                    <li data-id="widgets">
+                                        <a class="dropdown-item" href="/backend/Admin/Widget/Providers">
+                                            <i class='fa-fw fa fa-plus-square'></i>
+                                            Widgets
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-configuration" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-equalizer navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Configuration</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="settings" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw fa fa-sliders-h'></i>
+                                            Settings
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="general-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/GeneralCommon">
+                                                    General and miscellaneous settings
+                                                </a>
+                                            </li>
+                                            <li data-id="catalog-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Catalog">
+                                                    Catalog settings
+                                                </a>
+                                            </li>
+                                            <li data-id="search-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Search">
+                                                    Search
+                                                </a>
+                                            </li>
+                                            <li data-id="customer-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/CustomerUser">
+                                                    Customer settings
+                                                </a>
+                                            </li>
+                                            <li data-id="cart-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/ShoppingCart">
+                                                    Shopping cart settings
+                                                </a>
+                                            </li>
+                                            <li data-id="order-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Order">
+                                                    Order settings
+                                                </a>
+                                            </li>
+                                            <li data-id="payment-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Payment">
+                                                    Payment
+                                                </a>
+                                            </li>
+                                            <li data-id="media-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Media">
+                                                    Media settings
+                                                </a>
+                                            </li>
+                                            <li data-id="tax-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Tax">
+                                                    Tax settings
+                                                </a>
+                                            </li>
+                                            <li data-id="shipping-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Shipping">
+                                                    Shipping settings
+                                                </a>
+                                            </li>
+                                            <li data-id="reward-points-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/RewardPoints">
+                                                    Reward points
+                                                </a>
+                                            </li>
+                                            <li data-id="blog-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Blog">
+                                                    Blog settings
+                                                </a>
+                                            </li>
+                                            <li data-id="news-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/News">
+                                                    News settings
+                                                </a>
+                                            </li>
+                                            <li data-id="forum-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/Forum">
+                                                    Forum settings
+                                                </a>
+                                            </li>
+                                            <li data-id="dataexchange-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/DataExchange">
+                                                    Data exchange
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider"></li>
+                                            <li data-id="all-settings">
+                                                <a class="dropdown-item" href="/backend/Admin/Setting/AllSettings">
+                                                    All settings (advanced)
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="stores">
+                                        <a class="dropdown-item" href="/backend/Admin/Store/List">
+                                            <i class='fa-fw fa fa-globe'></i>
+                                            Stores
+                                        </a>
+                                    </li>
+                                    <li data-id="regional-settings" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw fa fa-language'></i>
+                                            Regional Settings
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="countries">
+                                                <a class="dropdown-item" href="/backend/Admin/Country/List">
+                                                    Countries
+                                                </a>
+                                            </li>
+                                            <li data-id="languages">
+                                                <a class="dropdown-item" href="/backend/Admin/Language/List">
+                                                    Languages
+                                                </a>
+                                            </li>
+                                            <li data-id="currencies">
+                                                <a class="dropdown-item" href="/backend/Admin/Currency/List">
+                                                    Currencies
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider"></li>
+                                            <li data-id="shipping-header" class="dropdown-header h6">Shipping</li>
+                                            <li data-id="shipping-methods">
+                                                <a class="dropdown-item" href="/backend/Admin/Shipping/Methods">
+                                                    Shipping methods
+                                                </a>
+                                            </li>
+                                            <li data-id="shipping-providers">
+                                                <a class="dropdown-item" href="/backend/Admin/Shipping/Providers">
+                                                    Shipping rate computation methods
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider"></li>
+                                            <li data-id="tax-header" class="dropdown-header h6">Tax</li>
+                                            <li data-id="tax-providers">
+                                                <a class="dropdown-item" href="/backend/Admin/Tax/Providers">
+                                                    Tax providers
+                                                </a>
+                                            </li>
+                                            <li data-id="tax-categories">
+                                                <a class="dropdown-item" href="/backend/Admin/Tax/Categories">
+                                                    Tax categories
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="payment-methods">
+                                        <a class="dropdown-item" href="/backend/Admin/Payment/Providers">
+                                            <i class='fa-fw far fa-credit-card'></i>
+                                            Payment methods
+                                        </a>
+                                    </li>
+                                    <li data-id="list-settings" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class='fa-fw fa fa-bars'></i>
+                                            Lists
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <li data-id="delivery-times">
+                                                <a class="dropdown-item" href="/backend/Admin/DeliveryTime/List">
+                                                    Delivery Times
+                                                </a>
+                                            </li>
+                                            <li data-id="quantity-units">
+                                                <a class="dropdown-item" href="/backend/Admin/QuantityUnit/List">
+                                                    Quantity units
+                                                </a>
+                                            </li>
+                                            <li data-id="weights">
+                                                <a class="dropdown-item" href="/backend/Admin/Measure/Weights">
+                                                    Weights
+                                                </a>
+                                            </li>
+                                            <li data-id="dimensions">
+                                                <a class="dropdown-item" href="/backend/Admin/Measure/Dimensions">
+                                                    Dimensions
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="email-accounts">
+                                        <a class="dropdown-item" href="/backend/Admin/EmailAccount/List">
+                                            <i class='fa-fw fa fa-envelope'></i>
+                                            Email Accounts
+                                        </a>
+                                    </li>
+                                    <li data-id="activity-types">
+                                        <a class="dropdown-item" href="/backend/Admin/ActivityLog/ListTypes">
+                                            <i class='fa-fw fa fa-eye'></i>
+                                            Activity Types
+                                        </a>
+                                    </li>
+                                    <li data-id="acl">
+                                        <a class="dropdown-item" href="/backend/Admin/Security/Permissions">
+                                            <i class='fa-fw fa fa-lock'></i>
+                                            Access control list
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="import">
+                                        <a class="dropdown-item" href="/backend/Admin/Import/List">
+                                            <i class='fa-fw fa fa-download '></i>
+                                            Import
+                                        </a>
+                                    </li>
+                                    <li data-id="export">
+                                        <a class="dropdown-item" href="/backend/Admin/Export/List">
+                                            <i class='fa-fw fa fa-upload '></i>
+                                            Export
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="themes">
+                                        <a class="dropdown-item" href="/backend/Admin/Theme/List">
+                                            <i class='fa-fw fa fa-fill-drip'></i>
+                                            Themes
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-system" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-database navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">System</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="system-log">
+                                        <a class="dropdown-item" href="/backend/Admin/Log/List">
+                                            <i class='fa-fw fa fa-fire'></i>
+                                            Log
+                                        </a>
+                                    </li>
+                                    <li data-id="queued-emails">
+                                        <a class="dropdown-item" href="/backend/Admin/QueuedEmail/List">
+                                            <i class='fa-fw fa fa-mail-bulk'></i>
+                                            Message Queue
+                                        </a>
+                                    </li>
+                                    <li data-id="maintenance">
+                                        <a class="dropdown-item" href="/backend/Admin/Common/Maintenance">
+                                            <i class='fa-fw fa fa-database'></i>
+                                            Maintenance
+                                        </a>
+                                    </li>
+                                    <li data-id="scheduled tasks">
+                                        <a class="dropdown-item" href="/backend/Admin/ScheduleTask/List">
+                                            <i class='fa-fw far fa-clock'></i>
+                                            Scheduled Tasks
+                                        </a>
+                                    </li>
+                                    <li data-id="seo-names">
+                                        <a class="dropdown-item" href="/backend/Admin/UrlRecord/List">
+                                            <i class='fa-fw fa fa-search'></i>
+                                            SEO Names
+                                        </a>
+                                    </li>
+                                    <li data-id="warnings">
+                                        <a class="dropdown-item" href="/backend/Admin/Common/Warnings">
+                                            <i class='fa-fw fa fa-exclamation-triangle'></i>
+                                            Warnings
+                                        </a>
+                                    </li>
+                                    <li data-id="system-info">
+                                        <a class="dropdown-item" href="/backend/Admin/Common/SystemInfo">
+                                            <i class='fa-fw fa fa-info-circle'></i>
+                                            System information
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-plugins" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-puzzle navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Plugins</span>
+                                </a>
+                                <ul class='dropdown-menu'>
+                                    <li data-id="4877019024">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Clickatell">
+                                            <i class='fa-fw far fa-paper-plane'></i>
+                                            Clickatell SMS Provider
+                                        </a>
+                                    </li>
+                                    <li data-id="4554794917">
+                                        <a class="dropdown-item" href="/backend/Plugins/SmartStore.SearchLog/List">
+                                            <i class='fa-fw fa fa-search'></i>
+                                            Search Log
+                                        </a>
+                                    </li>
+                                    <li data-id="0299814325">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.MegaSearch">
+                                            <i class='fa-fw fa fa-search'></i>
+                                            MegaSearch
+                                        </a>
+                                    </li>
+                                    <li data-id="0542060476">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.GDPR">
+                                            <i class='fa-fw fa fa-user-secret'></i>
+                                            GDPR
+                                        </a>
+                                    </li>
+                                    <li data-id="0907375987">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Azure">
+                                            <i class='fa-fw fab fa-windows'></i>
+                                            Microsoft Azure Services
+                                        </a>
+                                    </li>
+                                    <li data-id="0069819798">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Mailchimp">
+                                            <i class='fa-fw fab fa-mailchimp'></i>
+                                            MailChimp e-mail synchronization
+                                        </a>
+                                    </li>
+                                    <li data-id="7577480341">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.TinyImage">
+                                            <i class='fa-fw fa fa-compress-arrows-alt'></i>
+                                            TinyImage
+                                        </a>
+                                    </li>
+                                    <li data-id="8024712250">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.DevTools">
+                                            <i class='fa-fw far fa-terminal'></i>
+                                            Developer Tools
+                                        </a>
+                                    </li>
+                                    <li data-id="6445499538">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.OutputCache">
+                                            <i class='fa-fw far fa-hdd'></i>
+                                            Output Cache
+                                        </a>
+                                    </li>
+                                    <li data-id="7258941335">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.OrderNumberFormatter">
+                                            <i class='fa-fw far fa-file'></i>
+                                            Number Formatter
+                                        </a>
+                                    </li>
+                                    <li data-id="6247808117">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.GoogleMerchantCenter">
+                                            <i class='fa-fw fab fa-google'></i>
+                                            Google Merchant Center feed
+                                        </a>
+                                    </li>
+                                    <li data-id="9628220225">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.BizImporter">
+                                            <i class='fa-fw'></i>
+                                            SmartStore.biz Importer
+                                        </a>
+                                    </li>
+                                    <li data-id="9496365343">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Debitoor">
+                                            <i class='fa-fw fas fa-receipt'></i>
+                                            Debitoor
+                                        </a>
+                                    </li>
+                                    <li data-id="9990340774">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.ContentSlider">
+                                            <i class='fa-fw far fa-images'></i>
+                                            Content Slider
+                                        </a>
+                                    </li>
+                                    <li data-id="0746909656">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.MegaMenu">
+                                            <i class='fa-fw far fa-list-alt'></i>
+                                            Mega Menu
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="plugins-manage">
+                                        <a class="dropdown-item" href="/backend/Admin/Plugin/List">
+                                            <i class='fa-fw fa fa-puzzle-piece'></i>
+                                            Manage plugins
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+
+                    <div class="collapse navbar-collapse ml-auto">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle navbar-tool" href="javascript:void(0)"
+                                    title='Actions' data-toggle="dropdown">
+                                    <i class="icm icm-cog navbar-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="http://demo.smartstore.com/backend/"
+                                        title="Public store - SmartStore.NET Demo Shop">
+                                        <i class="fa fa-fw fa-globe"></i>
+                                        SmartStore.NET Demo Shop
+                                    </a>
+                                    <a class="dropdown-item" href="http://demo.smartstore.com/backend/"
+                                        title="Public store - SmartStore.NET Demo-Shop 2">
+                                        <i class="fa fa-fw fa-globe"></i>
+                                        SmartStore.NET Demo-Shop 2
+                                    </a>
+                                    <a class="dropdown-item" href='/backend/Admin/Theme/Preview'>
+                                        <i class="far fa-fw fa-eye"></i>
+                                        Preview Mode
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item"
+                                        href="/backend/Admin/Common/ClearCache?previousUrl=%2Fbackend%2FAdmin%2FSetting%2FShipping">
+                                        <i class="far fa-fw fa-trash-alt"></i>
+                                        Clear cache
+                                    </a>
+                                    <a class="dropdown-item"
+                                        href="/backend/Admin/Common/ClearDatabaseCache?previousUrl=%2Fbackend%2FAdmin%2FSetting%2FShipping">
+                                        <i class="fa fa-fw"></i>
+                                        Clear database cache
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" id="restart-application" href="#"
+                                        data-url="/backend/Admin/Common/RestartApplication?previousUrl=%2Fbackend%2FAdmin%2FSetting%2FShipping">
+                                        <i class="fa fa-fw fa-power-off"></i>
+                                        Restart application
+                                    </a>
+                                </div>
+                            </li>
+
+                            <form action="/backend/Admin/Common/LanguageSelected" class="hide" data-ajax="true"
+                                data-ajax-complete="onLanguageChangedRequestCompleted();" id="form-languageselector"
+                                method="post"><input id="customerlanguage" name="customerlanguage" type="hidden"
+                                    value="2" /></form>
+                            <li class="nav-item dropdown d-none d-md-block">
+                                <a class="nav-link dropdown-toggle navbar-tool" href="javascript:void(0)"
+                                    title='English' data-toggle="dropdown">
+                                    <i class="icm icm-earth navbar-icon"></i>
+                                    <span class="pl-2">EN</span>
+                                </a>
+                                <div id="language-selector" class="dropdown-menu dropdown-menu-right">
+                                    <a href="javascript:void(0)" data-lang-id='1' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/de.png' alt="Deutsch" />
+                                        Deutsch
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='2' class="dropdown-item disabled">
+                                        <img src='/backend/Content/Images/flags/us.png' alt="English" />
+                                        English
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='3' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/nl.png' alt="Dutch" />
+                                        Dutch
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='4' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/fr.png' alt="French" />
+                                        French
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='5' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/ru.png' alt="Russian" />
+                                        Russian
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='6' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/jp.png' alt="Japanese" />
+                                        Japanese
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='7' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/es.png' alt="Espa&#241;ol" />
+                                        Espa&#241;ol
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='8' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/sa.png' alt="Arabic (Saudi Arabia)" />
+                                        Arabic (Saudi Arabia)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='9' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/in.png' alt="Hindi (India)" />
+                                        Hindi (India)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='10' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/tr.png' alt="Turkish (Turkey)" />
+                                        Turkish (Turkey)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='11' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/cn.png'
+                                            alt="Chinese (Simplified, PRC)" />
+                                        Chinese (Simplified, PRC)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='12' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/it.png' alt="Italian (Italy)" />
+                                        Italian (Italy)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='13' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/pl.png' alt="Polish (Poland)" />
+                                        Polish (Poland)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='14' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/pt.png' alt="Portuguese (Portugal)" />
+                                        Portuguese (Portugal)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id='15' class="dropdown-item">
+                                        <img src='/backend/Content/Images/flags/gr.png' alt="Greek (Greece)" />
+                                        Greek (Greece)
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <a href="/backend/Admin/Language/List" class="dropdown-item manage-languages">
+                                        Manage languages
+                                    </a>
+                                </div>
+                            </li>
+                            <script>
+                                $(document).ready(function () {
+                                    $("#language-selector > .dropdown-item:not(.disabled, .manage-languages)").on('click', function () {
+                                        var el = $(this);
+                                        var langId = el.data("lang-id");
+                                        $("#customerlanguage").val(langId);
+                                        $("#form-languageselector").submit();
+                                    });
+                                });
+
+                                function onLanguageChangedRequestCompleted() {
+                                    location.reload();
+                                }
+                            </script>
+
+
+                            <li id="navtool-help" class="nav-item dropdown d-none d-md-block">
+                                <a class="nav-link dropdown-toggle navbar-tool" href="javascript:void(0)" title='Help'
+                                    data-toggle="dropdown">
+                                    <i class="icm icm-bubble-question navbar-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="https://docs.smartstore.com/display/SMNET32/"
+                                        data-lang="en" target="help">
+                                        <i class="fa fa-fw fa-book"></i>
+                                        Documentation
+                                    </a>
+                                    <a class="dropdown-item"
+                                        href="http://community.smartstore.com/index.php?/&amp;k=880ea6a14ea49e853634fbdc5015a024&amp;setlanguage=1&amp;cal_id=&amp;langid=1"
+                                        data-lang="en" target="help">
+                                        <i class="fa fa-fw fa-comment"></i>
+                                        Community
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/backend/Admin/Home/About">
+                                        <i class="fa fa-fw fa-info-circle"></i>
+                                        About SmartStore.NET
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown ml-md-3">
+                                <a id="current-user" class="nav-link dropdown-toggle navbar-tool" data-toggle="dropdown"
+                                    title="demo" href='/backend/Admin/Customer/Edit/55040'>
+
+                                    <i class="icm icm-user navbar-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="/backend/Admin/Customer/Edit/55040">
+                                        <i class="fa fa-fw fa-user"></i>
+                                        Account
+                                    </a>
+                                    <a class="dropdown-item" href="/backend/logout">
+                                        <i class="fal fa-fw fa-sign-out-alt"></i>
+                                        Logout?
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </nav>
+
+
+                <script type="text/javascript">
+
+                    $(function () {
+
+                        $("#restart-application").on('click', function (e) {
+                            e.preventDefault();
+                            $.throbber.show({
+                                message: "Restarting the application...",
+                                callback: function () {
+                                    setLocation($(e.target).data("url"));
+
+                                }
+                            });
+                            return false;
+                        });
+
+                        // add mainmenu tooltips;
+                        $('#tools [rel=tooltip]').tooltip({
+                            placement: 'bottom'
+                        });
+
+                    });
+
+                </script>
+
+
+                <div id="breadcrumb">
+                    <!-- SiteMapPath here-->
+
+                </div>
+            </header>
+
+
+
+            <div id="content">
+                <div class="cph">
+
+
+                    <form action="/backend/Admin/Setting/Shipping" method="post">
+                        <div class="section-header">
+                            <div class="title">
+                                <i class="fa fa-truck"></i>
+                                Shipping settings
+                            </div>
+                            <div class="options">
+                                <button type="submit" name="save" value="save" class="btn btn-warning">
+                                    <i class="fa fa-check"></i>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="multi-store-scope well px-0 py-2">
+                            <table class="adminContent adminContent-boxed">
+                                <tr>
+                                    <td class="adminTitle">
+                                        <div class='ctl-label'><label for="store-scope-configuration">Multi-store
+                                                configuration for</label></div>
+                                    </td>
+                                    <td class="adminData">
+                                        <select id="store-scope-configuration" name="store-scope-configuration"
+                                            onchange="setLocation(this.value);">
+                                            <option selected="selected"
+                                                value="/backend/Admin/Setting/ChangeStoreScopeConfiguration?storeid=0&amp;returnUrl=%2Fbackend%2FAdmin%2FSetting%2FShipping">
+                                                All stores</option>
+                                            <option
+                                                value="/backend/Admin/Setting/ChangeStoreScopeConfiguration?storeid=1&amp;returnUrl=%2Fbackend%2FAdmin%2FSetting%2FShipping">
+                                                SmartStore.NET Demo Shop</option>
+                                            <option
+                                                value="/backend/Admin/Setting/ChangeStoreScopeConfiguration?storeid=2&amp;returnUrl=%2Fbackend%2FAdmin%2FSetting%2FShipping">
+                                                SmartStore.NET Demo-Shop 2</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <script>
+                            $(function () {
+                                $('#store-scope-configuration').selectWrapper();
+                            });
+                        </script>
+                        <div class="validation-summary-valid" data-valmsg-summary="true">
+                            <ul>
+                                <li style="display:none"></li>
+                            </ul>
+                        </div>
+                        <table class="adminContent">
+                            <tr>
+                                <td class="adminTitle">
+                                    <div class='ctl-label'><label for="FreeShippingOverXEnabled">Free shipping over
+                                            &#39;X&#39;</label><a class="hint" href="#" onclick="return false;"
+                                            tabindex="-1"
+                                            title="Check the box to enable free shipping for all orders over &#39;X&#39;. Set the value for X below."><i
+                                                class="fa fa-question-circle"></i></a></div>
+                                </td>
+                                <td class="adminData">
+                                    <input data-toggler-for="#pnlFreeShipping" id="FreeShippingOverXEnabled"
+                                        name="FreeShippingOverXEnabled" type="checkbox" value="true" /><input
+                                        name="FreeShippingOverXEnabled" type="hidden" value="false" />
+                                    <span class="field-validation-valid" data-valmsg-for="FreeShippingOverXEnabled"
+                                        data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tbody id="pnlFreeShipping">
+                                <tr id="pnlValueOfX">
+                                    <td class="adminTitle">
+                                        <div class='ctl-label'><label for="FreeShippingOverXValue">Value of
+                                                &#39;X&#39;</label><a class="hint" href="#" onclick="return false;"
+                                                tabindex="-1"
+                                                title="All orders with a total greater than the value of &#39;X&#39; will qualify for free shipping."><i
+                                                    class="fa fa-question-circle"></i></a></div>
+                                    </td>
+                                    <td class="adminData">
+
+
+                                        <div class="numerictextbox-group flex-grow-1">
+                                            <div class="t-widget t-numerictextbox"><input class="t-input"
+                                                    data-val="true"
+                                                    data-val-number="The field &#39;Value of &#39;X&#39;&#39; must be a number."
+                                                    id="FreeShippingOverXValue" name="FreeShippingOverXValue"
+                                                    type="text" value="0" /><a class="t-link t-icon t-arrow-up" href="#"
+                                                    tabindex="-1" title="Increase value">Increment</a><a
+                                                    class="t-link t-icon t-arrow-down" href="#" tabindex="-1"
+                                                    title="Decrease value">Decrement</a></div>
+
+                                            <span class="numerictextbox-postfix">EUR</span>
+                                        </div>
+
+
+
+                                        <span class="field-validation-valid" data-valmsg-for="FreeShippingOverXValue"
+                                            data-valmsg-replace="true"></span>
+                                    </td>
+                                </tr>
+                                <tr id="pnlValueOfXincltax">
+                                    <td class="adminTitle">
+                                        <div class='ctl-label'><label for="FreeShippingOverXIncludingTax">Calculate
+                                                &#39;X&#39; including tax</label><a class="hint" href="#"
+                                                onclick="return false;" tabindex="-1"
+                                                title="Check the box to calculate &#39;X&#39; value including tax; otherwise excluding tax."><i
+                                                    class="fa fa-question-circle"></i></a></div>
+                                    </td>
+                                    <td class="adminData">
+
+
+                                        <input class="check-box form-check-input" id="FreeShippingOverXIncludingTax"
+                                            name="FreeShippingOverXIncludingTax" type="checkbox" value="true" /><input
+                                            name="FreeShippingOverXIncludingTax" type="hidden" value="false" />
+                                        <span class="field-validation-valid"
+                                            data-valmsg-for="FreeShippingOverXIncludingTax"
+                                            data-valmsg-replace="true"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tr>
+                                <td class="adminTitle">
+                                    <div class='ctl-label'><label for="EstimateShippingEnabled">Estimate shipping
+                                            enabled</label><a class="hint" href="#" onclick="return false;"
+                                            tabindex="-1"
+                                            title="Check the box to allow customers to estimate shipping on shopping cart page"><i
+                                                class="fa fa-question-circle"></i></a></div>
+                                </td>
+                                <td class="adminData">
+
+
+                                    <input class="check-box form-check-input" id="EstimateShippingEnabled"
+                                        name="EstimateShippingEnabled" type="checkbox" value="true" /><input
+                                        name="EstimateShippingEnabled" type="hidden" value="false" />
+                                    <span class="field-validation-valid" data-valmsg-for="EstimateShippingEnabled"
+                                        data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    <div class='ctl-label'><label for="DisplayShipmentEventsToCustomers">Display
+                                            shipment events</label><a class="hint" href="#" onclick="return false;"
+                                            tabindex="-1"
+                                            title="Check the box if you want your customers to see shipment events on their shipment details pages (if supported by your shipping rate computation method)."><i
+                                                class="fa fa-question-circle"></i></a></div>
+                                </td>
+                                <td class="adminData">
+
+
+                                    <input class="check-box form-check-input" id="DisplayShipmentEventsToCustomers"
+                                        name="DisplayShipmentEventsToCustomers" type="checkbox" value="true" /><input
+                                        name="DisplayShipmentEventsToCustomers" type="hidden" value="false" />
+                                    <span class="field-validation-valid"
+                                        data-valmsg-for="DisplayShipmentEventsToCustomers"
+                                        data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    <div class='ctl-label'><label for="SkipShippingIfSingleOption">Display shipping
+                                            options during checkout process only if more then one option is
+                                            available</label><a class="hint" href="#" onclick="return false;"
+                                            tabindex="-1"
+                                            title="Display shipping options during the checkout process only if more then one shipping option is available."><i
+                                                class="fa fa-question-circle"></i></a></div>
+                                </td>
+                                <td class="adminData">
+
+
+                                    <input class="check-box form-check-input" id="SkipShippingIfSingleOption"
+                                        name="SkipShippingIfSingleOption" type="checkbox" value="true" /><input
+                                        name="SkipShippingIfSingleOption" type="hidden" value="false" />
+                                    <span class="field-validation-valid" data-valmsg-for="SkipShippingIfSingleOption"
+                                        data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    <div class='ctl-label'><label for="ChargeOnlyHighestProductShippingSurcharge">Charge
+                                            the highest shipping surcharge only</label><a class="hint" href="#"
+                                            onclick="return false;" tabindex="-1"
+                                            title="Specifies  whether to charge only the highest additional shipping surcharge of products."><i
+                                                class="fa fa-question-circle"></i></a></div>
+                                </td>
+                                <td class="adminData">
+
+
+                                    <input class="check-box form-check-input"
+                                        id="ChargeOnlyHighestProductShippingSurcharge"
+                                        name="ChargeOnlyHighestProductShippingSurcharge" type="checkbox"
+                                        value="true" /><input name="ChargeOnlyHighestProductShippingSurcharge"
+                                        type="hidden" value="false" />
+                                    <span class="field-validation-valid"
+                                        data-valmsg-for="ChargeOnlyHighestProductShippingSurcharge"
+                                        data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    <div class='ctl-label'><label for="ShippingOriginAddress">Shipping Origin</label><a
+                                            class="hint" href="#" onclick="return false;" tabindex="-1"
+                                            title="Shipping origin address"><i class="fa fa-question-circle"></i></a>
+                                    </div>
+                                </td>
+                                <td class="adminData">
+                                    <div>
+                                        <input data-val="true"
+                                            data-val-number="The field &#39;ID&#39; must be a number."
+                                            data-val-required="&#39;ID&#39; must not be empty."
+                                            id="ShippingOriginAddress_Id" name="ShippingOriginAddress.Id" type="hidden"
+                                            value="0" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;TitleEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_TitleEnabled"
+                                            name="ShippingOriginAddress.TitleEnabled" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;FirstNameEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_FirstNameEnabled"
+                                            name="ShippingOriginAddress.FirstNameEnabled" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;FirstNameRequired&#39; must not be empty."
+                                            id="ShippingOriginAddress_FirstNameRequired"
+                                            name="ShippingOriginAddress.FirstNameRequired" type="hidden"
+                                            value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;LastNameEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_LastNameEnabled"
+                                            name="ShippingOriginAddress.LastNameEnabled" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;LastNameRequired&#39; must not be empty."
+                                            id="ShippingOriginAddress_LastNameRequired"
+                                            name="ShippingOriginAddress.LastNameRequired" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;EmailEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_EmailEnabled"
+                                            name="ShippingOriginAddress.EmailEnabled" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;EmailRequired&#39; must not be empty."
+                                            id="ShippingOriginAddress_EmailRequired"
+                                            name="ShippingOriginAddress.EmailRequired" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;ValidateEmailAddress&#39; must not be empty."
+                                            id="ShippingOriginAddress_ValidateEmailAddress"
+                                            name="ShippingOriginAddress.ValidateEmailAddress" type="hidden"
+                                            value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;CompanyEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_CompanyEnabled"
+                                            name="ShippingOriginAddress.CompanyEnabled" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;CompanyRequired&#39; must not be empty."
+                                            id="ShippingOriginAddress_CompanyRequired"
+                                            name="ShippingOriginAddress.CompanyRequired" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;CountryEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_CountryEnabled"
+                                            name="ShippingOriginAddress.CountryEnabled" type="hidden" value="True" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;StateProvinceEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_StateProvinceEnabled"
+                                            name="ShippingOriginAddress.StateProvinceEnabled" type="hidden"
+                                            value="True" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;CityEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_CityEnabled"
+                                            name="ShippingOriginAddress.CityEnabled" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;CityRequired&#39; must not be empty."
+                                            id="ShippingOriginAddress_CityRequired"
+                                            name="ShippingOriginAddress.CityRequired" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;StreetAddressEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_StreetAddressEnabled"
+                                            name="ShippingOriginAddress.StreetAddressEnabled" type="hidden"
+                                            value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;StreetAddressRequired&#39; must not be empty."
+                                            id="ShippingOriginAddress_StreetAddressRequired"
+                                            name="ShippingOriginAddress.StreetAddressRequired" type="hidden"
+                                            value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;StreetAddress2Enabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_StreetAddress2Enabled"
+                                            name="ShippingOriginAddress.StreetAddress2Enabled" type="hidden"
+                                            value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;StreetAddress2Required&#39; must not be empty."
+                                            id="ShippingOriginAddress_StreetAddress2Required"
+                                            name="ShippingOriginAddress.StreetAddress2Required" type="hidden"
+                                            value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;ZipPostalCodeEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_ZipPostalCodeEnabled"
+                                            name="ShippingOriginAddress.ZipPostalCodeEnabled" type="hidden"
+                                            value="True" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;ZipPostalCodeRequired&#39; must not be empty."
+                                            id="ShippingOriginAddress_ZipPostalCodeRequired"
+                                            name="ShippingOriginAddress.ZipPostalCodeRequired" type="hidden"
+                                            value="True" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;PhoneEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_PhoneEnabled"
+                                            name="ShippingOriginAddress.PhoneEnabled" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;PhoneRequired&#39; must not be empty."
+                                            id="ShippingOriginAddress_PhoneRequired"
+                                            name="ShippingOriginAddress.PhoneRequired" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;FaxEnabled&#39; must not be empty."
+                                            id="ShippingOriginAddress_FaxEnabled"
+                                            name="ShippingOriginAddress.FaxEnabled" type="hidden" value="False" />
+                                        <input data-val="true"
+                                            data-val-required="&#39;FaxRequired&#39; must not be empty."
+                                            id="ShippingOriginAddress_FaxRequired"
+                                            name="ShippingOriginAddress.FaxRequired" type="hidden" value="False" />
+
+                                        <table class="adminContent">
+                                            <tr>
+                                                <td class="adminTitle">
+                                                    <div class='ctl-label'><label
+                                                            for="ShippingOriginAddress_CountryId">Country</label><a
+                                                            class="hint" href="#" onclick="return false;" tabindex="-1"
+                                                            title="Select country"><i
+                                                                class="fa fa-question-circle"></i></a></div>
+                                                </td>
+                                                <td class="adminData">
+                                                    <select class="form-control country-input country-selector"
+                                                        data-addEmptyStateIfRequired="true"
+                                                        data-region-control-selector="#ShippingOriginAddress_StateProvinceId"
+                                                        data-states-ajax-url="/backend/Admin/Country/GetStatesByCountryId"
+                                                        data-val="true"
+                                                        data-val-number="The field &#39;Country&#39; must be a number."
+                                                        id="ShippingOriginAddress_CountryId"
+                                                        name="ShippingOriginAddress.CountryId">
+                                                        <option value="1">Deutschland</option>
+                                                        <option value="2">&#214;sterreich</option>
+                                                        <option value="3">Schweiz</option>
+                                                        <option value="86">Afghanistan</option>
+                                                        <option value="33">&#196;gypten</option>
+                                                        <option value="87">Albanien</option>
+                                                        <option value="88">Algerien</option>
+                                                        <option value="90">Andorra</option>
+                                                        <option value="91">Angola</option>
+                                                        <option value="92">Anguilla</option>
+                                                        <option value="93">Antarktis</option>
+                                                        <option value="94">Antigua und Barbuda</option>
+                                                        <option value="119">&#196;quatorial Guinea</option>
+                                                        <option value="6">Argentinien</option>
+                                                        <option value="7">Armenien</option>
+                                                        <option value="8">Aruba</option>
+                                                        <option value="10">Aserbaidschan</option>
+                                                        <option value="122">&#196;thiopien</option>
+                                                        <option value="9">Australien</option>
+                                                        <option value="11">Bahamas</option>
+                                                        <option value="95">Bahrain</option>
+                                                        <option value="12">Bangladesh</option>
+                                                        <option value="96">Barbados</option>
+                                                        <option value="14">Belgien</option>
+                                                        <option value="15">Belize</option>
+                                                        <option value="97">Benin</option>
+                                                        <option value="16">Bermudas</option>
+                                                        <option value="98">Bhutan</option>
+                                                        <option value="178">Birma</option>
+                                                        <option value="17">Bolivien</option>
+                                                        <option value="18">Bosnien-Herzegowina</option>
+                                                        <option value="99">Botswana</option>
+                                                        <option value="100">Bouvet Inseln</option>
+                                                        <option value="19">Brasilien</option>
+                                                        <option value="101">Britisch-Indischer Ozean</option>
+                                                        <option value="102">Brunei</option>
+                                                        <option value="20">Bulgarien</option>
+                                                        <option value="103">Burkina Faso</option>
+                                                        <option value="104">Burundi</option>
+                                                        <option value="22">Chile</option>
+                                                        <option value="23">China</option>
+                                                        <option value="110">Christmas Island</option>
+                                                        <option value="114">Cook Inseln</option>
+                                                        <option value="25">Costa Rica</option>
+                                                        <option value="30">D&#228;nemark</option>
+                                                        <option value="116">Djibuti</option>
+                                                        <option value="117">Dominika</option>
+                                                        <option value="31">Dominikanische Republik</option>
+                                                        <option value="32">Ecuador</option>
+                                                        <option value="118">El Salvador</option>
+                                                        <option value="115">Elfenbeink&#252;ste</option>
+                                                        <option value="120">Eritrea</option>
+                                                        <option value="121">Estland</option>
+                                                        <option value="123">Falkland Inseln</option>
+                                                        <option value="124">F&#228;r&#246;er Inseln</option>
+                                                        <option value="125">Fidschi</option>
+                                                        <option value="34">Finnland</option>
+                                                        <option value="35">Frankreich</option>
+                                                        <option value="126">Franz&#246;sisch Guyana</option>
+                                                        <option value="127">Franz&#246;sisch Polynesien</option>
+                                                        <option value="128">Franz&#246;sisches S&#252;d-Territorium
+                                                        </option>
+                                                        <option value="129">Gabun</option>
+                                                        <option value="130">Gambia</option>
+                                                        <option value="36">Georgien</option>
+                                                        <option value="131">Ghana</option>
+                                                        <option value="37">Gibraltar</option>
+                                                        <option value="133">Grenada</option>
+                                                        <option value="38">Griechenland</option>
+                                                        <option value="132">Gr&#246;nland</option>
+                                                        <option value="80">Gro&#223;britannien</option>
+                                                        <option value="134">Guadeloupe</option>
+                                                        <option value="135">Guam</option>
+                                                        <option value="39">Guatemala</option>
+                                                        <option value="136">Guinea</option>
+                                                        <option value="137">Guinea Bissau</option>
+                                                        <option value="138">Guyana</option>
+                                                        <option value="139">Haiti</option>
+                                                        <option value="140">Heard und McDonald Islands</option>
+                                                        <option value="141">Honduras</option>
+                                                        <option value="40">Hong Kong</option>
+                                                        <option value="42">Indien</option>
+                                                        <option value="43">Indonesien</option>
+                                                        <option value="144">Irak</option>
+                                                        <option value="143">Iran</option>
+                                                        <option value="44">Irland</option>
+                                                        <option value="142">Island</option>
+                                                        <option value="45">Israel</option>
+                                                        <option value="46">Italien</option>
+                                                        <option value="47">Jamaika</option>
+                                                        <option value="48">Japan</option>
+                                                        <option value="235">Jemen</option>
+                                                        <option value="49">Jordanien</option>
+                                                        <option value="21">Kaiman Inseln</option>
+                                                        <option value="105">Kambodscha</option>
+                                                        <option value="106">Kamerun</option>
+                                                        <option value="5">Kanada</option>
+                                                        <option value="107">Kap Verde</option>
+                                                        <option value="50">Kasachstan</option>
+                                                        <option value="145">Kenia</option>
+                                                        <option value="148">Kirgisistan</option>
+                                                        <option value="146">Kiribati</option>
+                                                        <option value="111">Kokosinseln</option>
+                                                        <option value="24">Kolumbien</option>
+                                                        <option value="112">Komoren</option>
+                                                        <option value="113">Kongo</option>
+                                                        <option value="26">Kroatien</option>
+                                                        <option value="27">Kuba</option>
+                                                        <option value="52">Kuwait</option>
+                                                        <option value="149">Laos</option>
+                                                        <option value="152">Lesotho</option>
+                                                        <option value="150">Lettland</option>
+                                                        <option value="151">Libanon</option>
+                                                        <option value="153">Liberia</option>
+                                                        <option value="154">Libyen</option>
+                                                        <option value="155">Liechtenstein</option>
+                                                        <option value="156">Litauen</option>
+                                                        <option value="157">Luxemburg</option>
+                                                        <option value="158">Macao</option>
+                                                        <option value="160">Madagaskar</option>
+                                                        <option value="161">Malawi</option>
+                                                        <option value="53">Malaysia</option>
+                                                        <option value="162">Malediven</option>
+                                                        <option value="163">Mali</option>
+                                                        <option value="164">Malta</option>
+                                                        <option value="189">Marianen</option>
+                                                        <option value="176">Marokko</option>
+                                                        <option value="165">Marshall Inseln</option>
+                                                        <option value="166">Martinique</option>
+                                                        <option value="167">Mauretanien</option>
+                                                        <option value="168">Mauritius</option>
+                                                        <option value="169">Mayotte</option>
+                                                        <option value="159">Mazedonien</option>
+                                                        <option value="54">Mexiko</option>
+                                                        <option value="170">Mikronesien</option>
+                                                        <option value="177">Mocambique</option>
+                                                        <option value="171">Moldavien</option>
+                                                        <option value="172">Monaco</option>
+                                                        <option value="173">Mongolei</option>
+                                                        <option value="174">Montenegro</option>
+                                                        <option value="175">Montserrat</option>
+                                                        <option value="179">Namibia</option>
+                                                        <option value="180">Nauru</option>
+                                                        <option value="181">Nepal</option>
+                                                        <option value="183">Neukaledonien</option>
+                                                        <option value="56">Neuseeland</option>
+                                                        <option value="184">Nicaragua</option>
+                                                        <option value="55">Niederlande</option>
+                                                        <option value="182">Niederl&#228;ndische Antillen</option>
+                                                        <option value="185">Niger</option>
+                                                        <option value="186">Nigeria</option>
+                                                        <option value="187">Niue</option>
+                                                        <option value="51">Nord Korea</option>
+                                                        <option value="188">Norfolk Inseln</option>
+                                                        <option value="57">Norwegen</option>
+                                                        <option value="190">Oman</option>
+                                                        <option value="58">Pakistan</option>
+                                                        <option value="191">Palau</option>
+                                                        <option value="192">Panama</option>
+                                                        <option value="193">Papua Neuguinea</option>
+                                                        <option value="59">Paraguay</option>
+                                                        <option value="60">Peru</option>
+                                                        <option value="61">Philippinen</option>
+                                                        <option value="194">Pitcairn</option>
+                                                        <option value="62">Polen</option>
+                                                        <option value="63">Portugal</option>
+                                                        <option value="64">Puerto Rico</option>
+                                                        <option value="65">Qatar</option>
+                                                        <option value="195">Reunion</option>
+                                                        <option value="196">Ruanda</option>
+                                                        <option value="66">Rum&#228;nien</option>
+                                                        <option value="67">Ru&#223;land</option>
+                                                        <option value="198">Saint Lucia</option>
+                                                        <option value="236">Sambia</option>
+                                                        <option value="200">Samoa</option>
+                                                        <option value="89">Samoa</option>
+                                                        <option value="201">San Marino</option>
+                                                        <option value="202">Sao Tome</option>
+                                                        <option value="68">Saudi Arabien</option>
+                                                        <option value="74">Schweden</option>
+                                                        <option value="203">Senegal</option>
+                                                        <option value="85">Serbien</option>
+                                                        <option value="204">Seychellen</option>
+                                                        <option value="205">Sierra Leone</option>
+                                                        <option value="69">Singapur</option>
+                                                        <option value="70">Slowakei</option>
+                                                        <option value="71">Slowenien</option>
+                                                        <option value="206">Solomon Inseln</option>
+                                                        <option value="207">Somalia</option>
+                                                        <option value="208">South Georgia, South Sandwich Isl.</option>
+                                                        <option value="73">Spanien</option>
+                                                        <option value="209">Sri Lanka</option>
+                                                        <option value="210">St. Helena</option>
+                                                        <option value="197">St. Kitts Nevis Anguilla</option>
+                                                        <option value="211">St. Pierre und Miquelon</option>
+                                                        <option value="199">St. Vincent</option>
+                                                        <option value="147">S&#252;d Korea</option>
+                                                        <option value="72">S&#252;dafrika</option>
+                                                        <option value="212">Sudan</option>
+                                                        <option value="213">Surinam</option>
+                                                        <option value="214">Svalbard und Jan Mayen Islands</option>
+                                                        <option value="215">Swasiland</option>
+                                                        <option value="216">Syrien</option>
+                                                        <option value="217">Tadschikistan</option>
+                                                        <option value="75">Taiwan</option>
+                                                        <option value="218">Tansania</option>
+                                                        <option value="76">Thailand</option>
+                                                        <option value="219">Togo</option>
+                                                        <option value="220">Tokelau</option>
+                                                        <option value="221">Tonga</option>
+                                                        <option value="222">Trinidad Tobago</option>
+                                                        <option value="109">Tschad</option>
+                                                        <option value="29">Tschechische Republik</option>
+                                                        <option value="223">Tunesien</option>
+                                                        <option value="77">T&#252;rkei</option>
+                                                        <option value="224">Turkmenistan</option>
+                                                        <option value="225">Turks und Kaikos Inseln</option>
+                                                        <option value="226">Tuvalu</option>
+                                                        <option value="227">Uganda</option>
+                                                        <option value="78">Ukraine</option>
+                                                        <option value="41">Ungarn</option>
+                                                        <option value="81">United States Minor Outlying Islands</option>
+                                                        <option value="82">Uruguay</option>
+                                                        <option value="83">Usbekistan</option>
+                                                        <option value="228">Vanuatu</option>
+                                                        <option value="229">Vatikan</option>
+                                                        <option value="84">Venezuela</option>
+                                                        <option value="79">Vereinigte Arabische Emirate</option>
+                                                        <option value="4">Vereinigte Staaten von Amerika</option>
+                                                        <option value="230">Vietnam</option>
+                                                        <option value="231">Virgin Island (Brit.)</option>
+                                                        <option value="232">Virgin Island (USA)</option>
+                                                        <option value="233">Wallis et Futuna</option>
+                                                        <option value="13">Weissrussland</option>
+                                                        <option value="234">Westsahara</option>
+                                                        <option value="108">Zentralafrikanische Republik</option>
+                                                        <option value="237">Zimbabwe</option>
+                                                        <option value="28">Zypern</option>
+                                                    </select>
+                                                    <span class="field-validation-valid"
+                                                        data-valmsg-for="ShippingOriginAddress.CountryId"
+                                                        data-valmsg-replace="true"></span>
+
+                                                    <script>
+                                                        $(function () {
+                                                            applyCommonPlugins(".adminContent");
+                                                        });
+                                                    </script>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="adminTitle">
+                                                    <div class='ctl-label'><label
+                                                            for="ShippingOriginAddress_StateProvinceId">State /
+                                                            province</label><a class="hint" href="#"
+                                                            onclick="return false;" tabindex="-1"
+                                                            title="Select state / province"><i
+                                                                class="fa fa-question-circle"></i></a></div>
+                                                </td>
+                                                <td class="adminData">
+                                                    <select data-val="true"
+                                                        data-val-number="The field &#39;State / province&#39; must be a number."
+                                                        id="ShippingOriginAddress_StateProvinceId"
+                                                        name="ShippingOriginAddress.StateProvinceId">
+                                                        <option value="0">Other (Non US)</option>
+                                                    </select>
+                                                    <span class="field-validation-valid"
+                                                        data-valmsg-for="ShippingOriginAddress.StateProvinceId"
+                                                        data-valmsg-replace="true"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="adminTitle">
+                                                    <div class='ctl-label'><label
+                                                            for="ShippingOriginAddress_ZipPostalCode">Zip / postal
+                                                            code</label><a class="hint" href="#" onclick="return false;"
+                                                            tabindex="-1" title="Enter zip / postal code"><i
+                                                                class="fa fa-question-circle"></i></a></div>
+                                                </td>
+                                                <td class="adminData">
+                                                    <input class="text-box single-line"
+                                                        id="ShippingOriginAddress_ZipPostalCode"
+                                                        name="ShippingOriginAddress.ZipPostalCode" type="text"
+                                                        value="" />
+                                                    <span class="field-validation-valid"
+                                                        data-valmsg-for="ShippingOriginAddress.ZipPostalCode"
+                                                        data-valmsg-replace="true"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div id="ajax-busy">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <script src="asset/js/telerik.common.min.js"></script>
+    <script src="asset/js/telerik.textbox.min.js"></script>
+    <script src="asset/js/telerik.calendar.min.js"></script>
+    <script src="asset/js/telerik.datepicker.min.js"></script>
+    <script src="asset/js/fileUpload.js"></script>
+    <script src="asset/js/linkBuilder.js"></script>
+    <script src="asset/js/modernizr-custom.js"></script>
+
+    <script src="asset/js/main.js"></script>
+
+</body>
+
+</html>

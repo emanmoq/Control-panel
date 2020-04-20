@@ -1,17 +1,17 @@
 <!Doctype html>
 <html>
 
-        <head>
-                <title>Control Panel</title>
-                <meta charset="utf-8">
-                <link rel=icon href="asset/img/logo.png" type="image/png">
-            
-                <link rel="stylesheet" href="asset/css/icm.css" type="text/css">
-                <link rel="stylesheet" href="asset/css/theme.css" type="text/css">
-                <script src="asset/js/script2.js" type="text/javascript"></script>
-                <script src="asset/js/script1.js"></script>
-                <script>
-                    window.Res = {
+<head>
+        <title>Control Panel</title>
+        <meta charset="utf-8">
+        <link rel=icon href="asset/img/logo.png" type="image/png">
+
+        <link rel="stylesheet" href="asset/css/icm.css" type="text/css">
+        <link rel="stylesheet" href="asset/css/theme.css" type="text/css">
+        <script src="asset/js/script2.js" type="text/javascript"></script>
+        <script src="asset/js/script1.js"></script>
+        <script>
+                window.Res = {
                         "Common.Notification": "Alert",
                         "Common.Close": "Close",
                         "Common.On": "On",
@@ -37,10 +37,10 @@
                         "Jquery.Validate.Max": "Please enter a value less than or equal to {0}.",
                         "Jquery.Validate.Min": "Please enter a value greater than or equal to {0}.",
                         "Admin.Common.AreYouSure": "Are you sure?",
-                    };
-                </script>
-                <script>
-                    try {
+                };
+        </script>
+        <script>
+                try {
                         if (typeof navigator === 'undefined') navigator = {};
                         html = document.documentElement;
                         if (/Edge\/\d+/.test(navigator.userAgent)) { html.className += ' edge' }
@@ -48,12 +48,13 @@
                         else if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) { html.className += ' ios' }
                         else if ('webkitMatchesSelector' in html) { html.className += ' wkit' };
                         html.className += (this.top === this.window ? ' not-' : ' ') + 'framed';
-                    } catch (e) { }
-                </script>
-                <script>var ieMode = 0; try { if (document.documentMode) { ieMode = document.documentMode; html.className += ' ie iepost8 ie' + document.documentMode } else { html.className += ' not-ie' }; } catch (e) { }; navigator.isIE = ieMode</script>
-            
-            
-            </head>
+                } catch (e) { }
+        </script>
+        <script>var ieMode = 0; try { if (document.documentMode) { ieMode = document.documentMode; html.className += ' ie iepost8 ie' + document.documentMode } else { html.className += ' not-ie' }; } catch (e) { }; navigator.isIE = ieMode</script>
+
+
+</head>
+
 <body>
 
         <div id="page">
@@ -492,7 +493,7 @@
                                                                                 <ul class="dropdown-menu">
                                                                                         <li data-id="general-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/GeneralCommon">
+                                                                                                        href="miscellaneousSettings.html">
                                                                                                         General and
                                                                                                         miscellaneous
                                                                                                         settings
@@ -500,57 +501,57 @@
                                                                                         </li>
                                                                                         <li data-id="catalog-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/Catalog">
+                                                                                                        href="catalogSetting.html">
                                                                                                         Catalog settings
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="search-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/Search">
+                                                                                                        href="searchSetting.html">
                                                                                                         Search
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="customer-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/CustomerUser">
+                                                                                                        href="CustomerUserSetting.html">
                                                                                                         Customer
                                                                                                         settings
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="cart-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/ShoppingCart">
+                                                                                                        href="shoppingCartSettings.html">
                                                                                                         Shopping cart
                                                                                                         settings
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="order-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/Order">
+                                                                                                        href="orderSettings.html">
                                                                                                         Order settings
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="payment-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/Payment">
+                                                                                                        href="paymentSettings.html">
                                                                                                         Payment
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="media-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/Media">
+                                                                                                        href="mediaSettings.html">
                                                                                                         Media settings
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="tax-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/Tax">
+                                                                                                        href="taxSettings.html">
                                                                                                         Tax settings
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="shipping-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/Shipping">
+                                                                                                        href="ShippingSettings.html">
                                                                                                         Shipping
                                                                                                         settings
                                                                                                 </a>
@@ -558,32 +559,32 @@
                                                                                         <li
                                                                                                 data-id="reward-points-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/RewardPoints">
+                                                                                                        href="RewardPoints.html">
                                                                                                         Reward points
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="blog-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/Blog">
+                                                                                                        href="BlogSetting.html">
                                                                                                         Blog settings
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="news-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/News">
+                                                                                                        href="NewsSettings.html">
                                                                                                         News settings
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li data-id="forum-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/Forum">
+                                                                                                        href="ForumSettings.html">
                                                                                                         Forum settings
                                                                                                 </a>
                                                                                         </li>
                                                                                         <li
                                                                                                 data-id="dataexchange-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/DataExchange">
+                                                                                                        href="exchangeSettings.html">
                                                                                                         Data exchange
                                                                                                 </a>
                                                                                         </li>
@@ -591,7 +592,7 @@
                                                                                         </li>
                                                                                         <li data-id="all-settings">
                                                                                                 <a class="dropdown-item"
-                                                                                                        href="/backend/Admin/Setting/AllSettings">
+                                                                                                        href="AllSettings.html">
                                                                                                         All settings
                                                                                                         (advanced)
                                                                                                 </a>
@@ -600,8 +601,7 @@
                                                                         </li>
                                                                         <li data-id="stores">
                                                                                 <a class="dropdown-item"
-                                                                                        href="/backend/Admin/Store/List">
-                                                                                        <i
+                                                                                        href="store.html">                                                                                        <i
                                                                                                 class="fa-fw fa fa-globe"></i>
                                                                                         Stores
                                                                                 </a>
@@ -674,7 +674,7 @@
                                                                         </li>
                                                                         <li data-id="payment-methods">
                                                                                 <a class="dropdown-item"
-                                                                                        href="/backend/Admin/Payment/Providers">
+                                                                                        href="paymentsMethod.html">
                                                                                         <i
                                                                                                 class="fa-fw far fa-credit-card"></i>
                                                                                         Payment methods
@@ -716,7 +716,7 @@
                                                                         </li>
                                                                         <li data-id="email-accounts">
                                                                                 <a class="dropdown-item"
-                                                                                        href="/backend/Admin/EmailAccount/List">
+                                                                                        href="emailAccounts.html">
                                                                                         <i
                                                                                                 class="fa-fw fa fa-envelope"></i>
                                                                                         Email Accounts
@@ -724,14 +724,14 @@
                                                                         </li>
                                                                         <li data-id="activity-types">
                                                                                 <a class="dropdown-item"
-                                                                                        href="/backend/Admin/ActivityLog/ListTypes">
+                                                                                        href="ListTypes.html">
                                                                                         <i class="fa-fw fa fa-eye"></i>
                                                                                         Activity Types
                                                                                 </a>
                                                                         </li>
                                                                         <li data-id="acl">
                                                                                 <a class="dropdown-item"
-                                                                                        href="/backend/Admin/Security/Permissions">
+                                                                                        href="Permissions.html">
                                                                                         <i class="fa-fw fa fa-lock"></i>
                                                                                         Access control list
                                                                                 </a>
@@ -739,7 +739,7 @@
                                                                         <li class="dropdown-divider"></li>
                                                                         <li data-id="import">
                                                                                 <a class="dropdown-item"
-                                                                                        href="/backend/Admin/Import/List">
+                                                                                        href="import.html">
                                                                                         <i
                                                                                                 class="fa-fw fa fa-download "></i>
                                                                                         Import
@@ -1193,8 +1193,7 @@
                                                                         <i class="icm icm-user navbar-icon"></i>
                                                                 </a>
                                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                                        <a class="dropdown-item"
-                                                                                href="account.html">
+                                                                        <a class="dropdown-item" href="account.html">
                                                                                 <i class="fa fa-fw fa-user"></i>
                                                                                 Account
                                                                         </a>
@@ -1802,7 +1801,7 @@
 
 
         </div>
-    
+
         <script src="asset/js/telerik.common.min.js"></script>
         <script src="asset/js/telerik.textbox.min.js"></script>
         <script src="asset/js/telerik.calendar.min.js"></script>
@@ -1810,7 +1809,7 @@
         <script src="asset/js/fileUpload.js"></script>
         <script src="asset/js/linkBuilder.js"></script>
         <script src="asset/js/modernizr-custom.js"></script>
-    
+
         <script src="asset/js/main.js"></script>
 
 

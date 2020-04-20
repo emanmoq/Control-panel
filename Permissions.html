@@ -1,0 +1,2629 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>Control Panel</title>
+    <meta charset="utf-8">
+    <link rel=icon href="asset/img/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="asset/css/icm.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/theme.css" type="text/css">
+    <script src="asset/js/script2.js" type="text/javascript"></script>
+    <script src="asset/js/script1.js"></script>
+    <script>
+        window.Res = {
+            "Common.Notification": "Alert",
+            "Common.Close": "Close",
+            "Common.On": "On",
+            "Common.OK": "OK",
+            "Common.Cancel": "Cancel",
+            "Common.Off": "Off",
+            "Products.Longdesc.More": "Show more",
+            "Products.Longdesc.Less": "Show less",
+            "Jquery.Validate.Email": "Please enter a valid email address.",
+            "Jquery.Validate.Required": "This field is required.",
+            "Jquery.Validate.Remote": "Please fix this field.",
+            "Jquery.Validate.Url": "Please enter a valid URL.",
+            "Jquery.Validate.Date": "Please enter a valid date.",
+            "Jquery.Validate.DateISO": "Please enter a valid date (ISO).",
+            "Jquery.Validate.Number": "Please enter a valid number.",
+            "Jquery.Validate.Digits": "Please enter only digits.",
+            "Jquery.Validate.Creditcard": "Please enter a valid credit card number.",
+            "Jquery.Validate.Equalto": "Please enter the same value again.",
+            "Jquery.Validate.Maxlength": "Please enter no more than {0} characters.",
+            "Jquery.Validate.Minlength": "Please enter at least {0} characters.",
+            "Jquery.Validate.Rangelength": "Please enter a value between {0} and {1} characters long.",
+            "jquery.Validate.Range": "Please enter a value between {0} and {1}.",
+            "Jquery.Validate.Max": "Please enter a value less than or equal to {0}.",
+            "Jquery.Validate.Min": "Please enter a value greater than or equal to {0}.",
+            "Admin.Common.AreYouSure": "Are you sure?",
+        };
+    </script>
+    <script>
+        try {
+            if (typeof navigator === 'undefined') navigator = {};
+            html = document.documentElement;
+            if (/Edge\/\d+/.test(navigator.userAgent)) { html.className += ' edge' }
+            else if ('mozMatchesSelector' in html) { html.className += ' moz' }
+            else if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) { html.className += ' ios' }
+            else if ('webkitMatchesSelector' in html) { html.className += ' wkit' };
+            html.className += (this.top === this.window ? ' not-' : ' ') + 'framed';
+        } catch (e) { }
+    </script>
+    <script>var ieMode = 0; try { if (document.documentMode) { ieMode = document.documentMode; html.className += ' ie iepost8 ie' + document.documentMode } else { html.className += ' not-ie' }; } catch (e) { }; navigator.isIE = ieMode</script>
+
+
+</head>
+
+<body>
+
+    <div id="page">
+        <div class="page-main">
+            <header id="header">
+                <nav id="navbar" class="navbar navbar-dark navbar-expand">
+
+                    <a class="navbar-brand mx-0 mr-3" href="/backend/Admin">
+
+                        <img class="navbar-img d-none d-lg-block" src="asset/img/logo.png" alt="newSolutions.com">
+                        <img class="navbar-img d-lg-none" src="asset/img/logo.png" alt="newSolutions.com">
+                    </a>
+
+                    <div id="navbar-menu" class="collapse navbar-collapse mr-auto">
+
+                        <ul class="navbar-nav">
+                            <li data-id="nav-dashboard" class="nav-item dropdown d-none d-md-block">
+                                <a class="nav-link" href="index.html">
+                                    <i class="icm icm-icm icm-home navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Dashboard</span>
+                                </a>
+                            </li>
+                            <li data-id="nav-catalog" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-cube navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Catalog</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li data-id="categories-list">
+                                        <a class="dropdown-item" href="Category.html">
+                                            <i class="fa-fw fa fa-sitemap"></i>
+                                            Categories
+                                        </a>
+                                    </li>
+                                    <li data-id="products">
+                                        <a class="dropdown-item" href="products.html">
+                                            <i class="fa-fw fa fa-cube"></i>
+                                            Manage products
+                                        </a>
+                                    </li>
+                                    <li data-id="products-bulk-edit">
+                                        <a class="dropdown-item" href="editProducts.html">
+                                            <i class="fa-fw fa fa-cubes"></i>
+                                            Bulk edit products
+                                        </a>
+                                    </li>
+                                    <li data-id="reviews">
+                                        <a class="dropdown-item" href="viewProducts.html">
+                                            <i class="fa-fw far fa-star-half"></i>
+                                            Product reviews
+                                        </a>
+                                    </li>
+                                    <li data-id="manufacturers">
+                                        <a class="dropdown-item" href="manufacture.html">
+                                            <i class="fa-fw far fa-building"></i>
+                                            Manufacturers
+                                        </a>
+                                    </li>
+                                    <li data-id="tags">
+                                        <a class="dropdown-item" href="produtTags.html">
+                                            <i class="fa-fw fa fa-tags"></i>
+                                            Product tags
+                                        </a>
+                                    </li>
+                                    <li data-id="stockreport">
+                                        <a class="dropdown-item" href="lowstockReport.html">
+                                            <i class="fa-fw fa fa-sort-numeric-down"></i>
+                                            Low stock report
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="attributes-header" class="dropdown-header h6">Attributes
+                                    </li>
+                                    <li data-id="attributes">
+                                        <a class="dropdown-item" href="productattr.html">
+                                            <i class="fa-fw far fa-list-alt"></i>
+                                            Product Attributes
+                                        </a>
+                                    </li>
+                                    <li data-id="specification-attributes">
+                                        <a class="dropdown-item" href="spacificattr.html">
+                                            <i class="fa-fw fa fa-list"></i>
+                                            Specification Attributes
+                                        </a>
+                                    </li>
+                                    <li data-id="checkout-attributes">
+                                        <a class="dropdown-item" href="checkoutattr.html">
+                                            <i class="fa-fw fa fa-list"></i>
+                                            Checkout Attributes
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-sales" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-chart-growth navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Sales</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li data-id="orders">
+                                        <a class="dropdown-item" href="order.html">
+                                            <i class="fa-fw far fa-chart-bar"></i>
+                                            Orders
+                                        </a>
+                                    </li>
+                                    <li data-id="shipments">
+                                        <a class="dropdown-item" href="shipment.html">
+                                            <i class="fa-fw fa fa-truck-moving fa-flip-horizontal"></i>
+                                            Shipments
+                                        </a>
+                                    </li>
+                                    <li data-id="recurring-payments">
+                                        <a class="dropdown-item" href="recurringPayment.html">
+                                            <i class="fa-fw fa fa-redo"></i>
+                                            Recurring payments
+                                        </a>
+                                    </li>
+                                    <li data-id="return-requests">
+                                        <a class="dropdown-item" href="returenRequest.html">
+                                            <i class="fa-fw fa fa-truck-moving"></i>
+                                            Return requests
+                                        </a>
+                                    </li>
+                                    <li data-id="gift-cards">
+                                        <a class="dropdown-item" href="giftCard.html">
+                                            <i class="fa-fw fa fa-gifts"></i>
+                                            Gift cards
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="shopping-carts">
+                                        <a class="dropdown-item" href="currentShopping.html">
+                                            <i class="fa-fw fa fa-cart-arrow-down"></i>
+                                            Current shopping carts
+                                        </a>
+                                    </li>
+                                    <li data-id="wishlists">
+                                        <a class="dropdown-item" href="wishList.html">
+                                            <i class="fa-fw far fa-heart"></i>
+                                            Current wishlists
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="bestsellers">
+                                        <a class="dropdown-item" href="bestSellers.html">
+                                            <i class="fa-fw far fa-thumbs-up"></i>
+                                            Bestsellers
+                                        </a>
+                                    </li>
+                                    <li data-id="flopsellers">
+                                        <a class="dropdown-item" href="productNeverPurchase.html">
+                                            <i class="fa-fw far fa-thumbs-down"></i>
+                                            Products never purchased
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-users" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-users2 navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Customers</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li data-id="customers">
+                                        <a class="dropdown-item" href="customers.html">
+                                            <i class="fa-fw fa fa-user-alt"></i>
+                                            Customers
+                                        </a>
+                                    </li>
+                                    <li data-id="customer-roles">
+                                        <a class="dropdown-item" href="customRoles.html">
+                                            <i class="fa-fw fa fa-users"></i>
+                                            Customer roles
+                                        </a>
+                                    </li>
+                                    <li data-id="online-customers">
+                                        <a class="dropdown-item" href="customonline.html">
+                                            <i class="fa-fw fa fa-sign-in-alt"></i>
+                                            Online customers
+                                        </a>
+                                    </li>
+                                    <li data-id="customer-reports">
+                                        <a class="dropdown-item" href="customReport.html">
+                                            <i class="fa-fw far fa-chart-bar"></i>
+                                            Customer reports
+                                        </a>
+                                    </li>
+                                    <li data-id="external-auth">
+                                        <a class="dropdown-item" href="extrnalMethod.html">
+                                            <i class="fa-fw fab fa-facebook-square"></i>
+                                            External authentication methods
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="activity-log">
+                                        <a class="dropdown-item" href="activityLog.html">
+                                            <i class="fa-fw far fa-eye"></i>
+                                            Activity Log
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-promotions" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-bullhorn navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Promotions</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li data-id="discounts">
+                                        <a class="dropdown-item" href="discount.html">
+                                            <i class="fa-fw fa fa-signal fa-flip-horizontal"></i>
+                                            Discounts
+                                        </a>
+                                    </li>
+                                    <li data-id="affiliates">
+                                        <a class="dropdown-item" href="Affiliate.html">
+                                            <i class="fa-fw fa fa-user-friends"></i>
+                                            Affiliates
+                                        </a>
+                                    </li>
+                                    <li data-id="newsletter-subscribers">
+                                        <a class="dropdown-item" href="NewsLetterSubscription.html">
+                                            <i class="fa-fw fa fa-envelope"></i>
+                                            Newsletter Subscribers
+                                        </a>
+                                    </li>
+                                    <li data-id="campaigns">
+                                        <a class="dropdown-item" href="Campaign.html">
+                                            <i class="fa-fw fa fa-bullhorn"></i>
+                                            Campaigns
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-cms" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-site-map navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">CMS</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li data-id="topics">
+                                        <a class="dropdown-item" href="cmsTopics.html">
+                                            <i class="fa-fw far fa-file-alt"></i>
+                                            Topics
+                                        </a>
+                                    </li>
+                                    <li data-id="8537124912">
+                                        <a class="dropdown-item" href="cms-pageBuilder.html">
+                                            <i class="fa-fw fa fa-th-large"></i>
+                                            Page Builder
+                                        </a>
+                                    </li>
+                                    <li data-id="menus">
+                                        <a class="dropdown-item" href="cms-menus.html">
+                                            <i class="fa-fw far fa-stream"></i>
+                                            Menus
+                                        </a>
+                                    </li>
+                                    <li data-id="news" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class="fa-fw far fa-newspaper"></i>
+                                            News
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li data-id="news-items">
+                                                <a class="dropdown-item" href="new-newsItem.html">
+                                                    News items
+                                                </a>
+                                            </li>
+                                            <li data-id="news-comments">
+                                                <a class="dropdown-item" href="newsComment.html">
+                                                    News comments
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="blog" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class="fa-fw fa fa-blog"></i>
+                                            Blog
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li data-id="blog-posts">
+                                                <a class="dropdown-item" href="cms-Blog.html">
+                                                    Blog posts
+                                                </a>
+                                            </li>
+                                            <li data-id="blog-comments">
+                                                <a class="dropdown-item" href="/backend/Admin/Blog/Comments">
+                                                    Blog comments
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="forums">
+                                        <a class="dropdown-item" href="/backend/Admin/Forum/List">
+                                            <i class="fa-fw fa fa-users"></i>
+                                            Forums
+                                        </a>
+                                    </li>
+                                    <li data-id="message-templates">
+                                        <a class="dropdown-item" href="/backend/Admin/MessageTemplate/List">
+                                            <i class="fa-fw far fa-envelope"></i>
+                                            Message templates
+                                        </a>
+                                    </li>
+                                    <li data-id="polls">
+                                        <a class="dropdown-item" href="/backend/Admin/Poll/List">
+                                            <i class="fa-fw fa fa-tasks"></i>
+                                            Polls
+                                        </a>
+                                    </li>
+                                    <li data-id="widgets">
+                                        <a class="dropdown-item" href="/backend/Admin/Widget/Providers">
+                                            <i class="fa-fw fa fa-plus-square"></i>
+                                            Widgets
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-configuration" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-equalizer navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Configuration</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li data-id="settings" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class="fa-fw fa fa-sliders-h"></i>
+                                            Settings
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li data-id="general-settings">
+                                                <a class="dropdown-item" href="miscellaneousSettings.html">
+                                                    General and
+                                                    miscellaneous
+                                                    settings
+                                                </a>
+                                            </li>
+                                            <li data-id="catalog-settings">
+                                                <a class="dropdown-item" href="catalogSetting.html">
+                                                    Catalog settings
+                                                </a>
+                                            </li>
+                                            <li data-id="search-settings">
+                                                <a class="dropdown-item" href="searchSetting.html">
+                                                    Search
+                                                </a>
+                                            </li>
+                                            <li data-id="customer-settings">
+                                                <a class="dropdown-item" href="CustomerUserSetting.html">
+                                                    Customer
+                                                    settings
+                                                </a>
+                                            </li>
+                                            <li data-id="cart-settings">
+                                                <a class="dropdown-item" href="shoppingCartSettings.html">
+                                                    Shopping cart
+                                                    settings
+                                                </a>
+                                            </li>
+                                            <li data-id="order-settings">
+                                                <a class="dropdown-item" href="orderSettings.html">
+                                                    Order settings
+                                                </a>
+                                            </li>
+                                            <li data-id="payment-settings">
+                                                <a class="dropdown-item" href="paymentSettings.html">
+                                                    Payment
+                                                </a>
+                                            </li>
+                                            <li data-id="media-settings">
+                                                <a class="dropdown-item" href="mediaSettings.html">
+                                                    Media settings
+                                                </a>
+                                            </li>
+                                            <li data-id="tax-settings">
+                                                <a class="dropdown-item" href="taxSettings.html">
+                                                    Tax settings
+                                                </a>
+                                            </li>
+                                            <li data-id="shipping-settings">
+                                                <a class="dropdown-item" href="ShippingSettings.html">
+                                                    Shipping
+                                                    settings
+                                                </a>
+                                            </li>
+                                            <li data-id="reward-points-settings">
+                                                <a class="dropdown-item" href="RewardPoints.html">
+                                                    Reward points
+                                                </a>
+                                            </li>
+                                            <li data-id="blog-settings">
+                                                <a class="dropdown-item" href="BlogSetting.html">
+                                                    Blog settings
+                                                </a>
+                                            </li>
+                                            <li data-id="news-settings">
+                                                <a class="dropdown-item" href="NewsSettings.html">
+                                                    News settings
+                                                </a>
+                                            </li>
+                                            <li data-id="forum-settings">
+                                                <a class="dropdown-item" href="ForumSettings.html">
+                                                    Forum settings
+                                                </a>
+                                            </li>
+                                            <li data-id="dataexchange-settings">
+                                                <a class="dropdown-item" href="exchangeSettings.html">
+                                                    Data exchange
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider">
+                                            </li>
+                                            <li data-id="all-settings">
+                                                <a class="dropdown-item" href="AllSettings.html">
+                                                    All settings
+                                                    (advanced)
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="stores">
+                                        <a class="dropdown-item" href="store.html"> <i class="fa-fw fa fa-globe"></i>
+                                            Stores
+                                        </a>
+                                    </li>
+                                    <li data-id="regional-settings" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class="fa-fw fa fa-language"></i>
+                                            Regional Settings
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li data-id="countries">
+                                                <a class="dropdown-item" href="/backend/Admin/Country/List">
+                                                    Countries
+                                                </a>
+                                            </li>
+                                            <li data-id="languages">
+                                                <a class="dropdown-item" href="/backend/Admin/Language/List">
+                                                    Languages
+                                                </a>
+                                            </li>
+                                            <li data-id="currencies">
+                                                <a class="dropdown-item" href="/backend/Admin/Currency/List">
+                                                    Currencies
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider">
+                                            </li>
+                                            <li data-id="shipping-header" class="dropdown-header h6">
+                                                Shipping</li>
+                                            <li data-id="shipping-methods">
+                                                <a class="dropdown-item" href="/backend/Admin/Shipping/Methods">
+                                                    Shipping methods
+                                                </a>
+                                            </li>
+                                            <li data-id="shipping-providers">
+                                                <a class="dropdown-item" href="/backend/Admin/Shipping/Providers">
+                                                    Shipping rate
+                                                    computation
+                                                    methods
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider">
+                                            </li>
+                                            <li data-id="tax-header" class="dropdown-header h6">
+                                                Tax</li>
+                                            <li data-id="tax-providers">
+                                                <a class="dropdown-item" href="/backend/Admin/Tax/Providers">
+                                                    Tax providers
+                                                </a>
+                                            </li>
+                                            <li data-id="tax-categories">
+                                                <a class="dropdown-item" href="/backend/Admin/Tax/Categories">
+                                                    Tax categories
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="payment-methods">
+                                        <a class="dropdown-item" href="paymentsMethod.html">
+                                            <i class="fa-fw far fa-credit-card"></i>
+                                            Payment methods
+                                        </a>
+                                    </li>
+                                    <li data-id="list-settings" class="dropdown-group">
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class="fa-fw fa fa-bars"></i>
+                                            Lists
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li data-id="delivery-times">
+                                                <a class="dropdown-item" href="/backend/Admin/DeliveryTime/List">
+                                                    Delivery Times
+                                                </a>
+                                            </li>
+                                            <li data-id="quantity-units">
+                                                <a class="dropdown-item" href="/backend/Admin/QuantityUnit/List">
+                                                    Quantity units
+                                                </a>
+                                            </li>
+                                            <li data-id="weights">
+                                                <a class="dropdown-item" href="/backend/Admin/Measure/Weights">
+                                                    Weights
+                                                </a>
+                                            </li>
+                                            <li data-id="dimensions">
+                                                <a class="dropdown-item" href="/backend/Admin/Measure/Dimensions">
+                                                    Dimensions
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li data-id="email-accounts">
+                                        <a class="dropdown-item" href="emailAccounts.html">
+                                            <i class="fa-fw fa fa-envelope"></i>
+                                            Email Accounts
+                                        </a>
+                                    </li>
+                                    <li data-id="activity-types">
+                                        <a class="dropdown-item" href="ListTypes.html">
+                                            <i class="fa-fw fa fa-eye"></i>
+                                            Activity Types
+                                        </a>
+                                    </li>
+                                    <li data-id="acl">
+                                        <a class="dropdown-item" href="Permissions.html">
+                                            <i class="fa-fw fa fa-lock"></i>
+                                            Access control list
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="import">
+                                        <a class="dropdown-item" href="/backend/Admin/Import/List">
+                                            <i class="fa-fw fa fa-download "></i>
+                                            Import
+                                        </a>
+                                    </li>
+                                    <li data-id="export">
+                                        <a class="dropdown-item" href="/backend/Admin/Export/List">
+                                            <i class="fa-fw fa fa-upload "></i>
+                                            Export
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="themes">
+                                        <a class="dropdown-item" href="/backend/Admin/Theme/List">
+                                            <i class="fa-fw fa fa-fill-drip"></i>
+                                            Themes
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-system" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-database navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">System</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li data-id="system-log">
+                                        <a class="dropdown-item" href="log.html">
+                                            <i class="fa-fw fa fa-fire"></i>
+                                            Log
+                                        </a>
+                                    </li>
+                                    <li data-id="queued-emails">
+                                        <a class="dropdown-item" href="MessageQueue.html">
+                                            <i class="fa-fw fa fa-mail-bulk"></i>
+                                            Message Queue
+                                        </a>
+                                    </li>
+                                    <li data-id="maintenance">
+                                        <a class="dropdown-item" href="Maintenance.html">
+                                            <i class="fa-fw fa fa-database"></i>
+                                            Maintenance
+                                        </a>
+                                    </li>
+                                    <li data-id="scheduled tasks">
+                                        <a class="dropdown-item" href="scheduledTasks.html">
+                                            <i class="fa-fw far fa-clock"></i>
+                                            Scheduled Tasks
+                                        </a>
+                                    </li>
+                                    <li data-id="seo-names">
+                                        <a class="dropdown-item" href="seo.html">
+                                            <i class="fa-fw fa fa-search"></i>
+                                            SEO Names
+                                        </a>
+                                    </li>
+                                    <li data-id="warnings">
+                                        <a class="dropdown-item" href="warning.html">
+                                            <i class="fa-fw fa fa-exclamation-triangle"></i>
+                                            Warnings
+                                        </a>
+                                    </li>
+                                    <li data-id="system-info">
+                                        <a class="dropdown-item" href="systemInfo.html">
+                                            <i class="fa-fw fa fa-info-circle"></i>
+                                            System information
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-id="nav-plugins" class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+                                    <i class="icm icm-icm icm-puzzle navbar-icon"></i>
+                                    <span class="navbar-label d-none d-lg-block">Plugins</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li data-id="6986192304">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Clickatell">
+                                            <i class="fa-fw far fa-paper-plane"></i>
+                                            Clickatell SMS Provider
+                                        </a>
+                                    </li>
+                                    <li data-id="2056891916">
+                                        <a class="dropdown-item" href="/backend/Plugins/SmartStore.SearchLog/List">
+                                            <i class="fa-fw fa fa-search"></i>
+                                            Search Log
+                                        </a>
+                                    </li>
+                                    <li data-id="1628231328">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.GDPR">
+                                            <i class="fa-fw fa fa-user-secret"></i>
+                                            GDPR
+                                        </a>
+                                    </li>
+                                    <li data-id="3781333941">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.MegaSearch">
+                                            <i class="fa-fw fa fa-search"></i>
+                                            MegaSearch
+                                        </a>
+                                    </li>
+                                    <li data-id="0807670791">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Azure">
+                                            <i class="fa-fw fab fa-windows"></i>
+                                            Microsoft Azure Services
+                                        </a>
+                                    </li>
+                                    <li data-id="0474097937">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Mailchimp">
+                                            <i class="fa-fw fab fa-mailchimp"></i>
+                                            MailChimp e-mail synchronization
+                                        </a>
+                                    </li>
+                                    <li data-id="7801042325">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.TinyImage">
+                                            <i class="fa-fw fa fa-compress-arrows-alt"></i>
+                                            TinyImage
+                                        </a>
+                                    </li>
+                                    <li data-id="6159526415">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.DevTools">
+                                            <i class="fa-fw far fa-terminal"></i>
+                                            Developer Tools
+                                        </a>
+                                    </li>
+                                    <li data-id="3440880303">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.OutputCache">
+                                            <i class="fa-fw far fa-hdd"></i>
+                                            Output Cache
+                                        </a>
+                                    </li>
+                                    <li data-id="5367428861">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.OrderNumberFormatter">
+                                            <i class="fa-fw far fa-file"></i>
+                                            Number Formatter
+                                        </a>
+                                    </li>
+                                    <li data-id="4743489788">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.GoogleMerchantCenter">
+                                            <i class="fa-fw fab fa-google"></i>
+                                            Google Merchant Center feed
+                                        </a>
+                                    </li>
+                                    <li data-id="3278434032">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.BizImporter">
+                                            <i class="fa-fw"></i>
+                                            SmartStore.biz Importer
+                                        </a>
+                                    </li>
+                                    <li data-id="4828935853">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.Debitoor">
+                                            <i class="fa-fw fas fa-receipt"></i>
+                                            Debitoor
+                                        </a>
+                                    </li>
+                                    <li data-id="4789050059">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.ContentSlider">
+                                            <i class="fa-fw far fa-images"></i>
+                                            Content Slider
+                                        </a>
+                                    </li>
+                                    <li data-id="8252036720">
+                                        <a class="dropdown-item"
+                                            href="/backend/Admin/Plugin/ConfigurePlugin?systemName=SmartStore.MegaMenu">
+                                            <i class="fa-fw far fa-list-alt"></i>
+                                            Mega Menu
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li data-id="plugins-manage">
+                                        <a class="dropdown-item" href="/backend/Admin/Plugin/List">
+                                            <i class="fa-fw fa fa-puzzle-piece"></i>
+                                            Manage plugins
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+
+                    <div class="collapse navbar-collapse ml-auto">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle navbar-tool" href="javascript:void(0)"
+                                    title="Actions" data-toggle="dropdown">
+                                    <i class="icm icm-cog navbar-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="http://demo.smartstore.com/backend/"
+                                        title="Public store - SmartStore.NET Demo Shop">
+                                        <i class="fa fa-fw fa-globe"></i>
+                                        SmartStore.NET Demo Shop
+                                    </a>
+                                    <a class="dropdown-item" href="http://demo.smartstore.com/backend/"
+                                        title="Public store - SmartStore.NET Demo-Shop 2">
+                                        <i class="fa fa-fw fa-globe"></i>
+                                        SmartStore.NET Demo-Shop 2
+                                    </a>
+                                    <a class="dropdown-item" href="/backend/Admin/Theme/Preview">
+                                        <i class="far fa-fw fa-eye"></i>
+                                        Preview Mode
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item"
+                                        href="/backend/Admin/Common/ClearCache?previousUrl=%2Fbackend%2FAdmin">
+                                        <i class="far fa-fw fa-trash-alt"></i>
+                                        Clear cache
+                                    </a>
+                                    <a class="dropdown-item"
+                                        href="/backend/Admin/Common/ClearDatabaseCache?previousUrl=%2Fbackend%2FAdmin">
+                                        <i class="fa fa-fw"></i>
+                                        Clear database cache
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" id="restart-application" href="#"
+                                        data-url="/backend/Admin/Common/RestartApplication?previousUrl=%2Fbackend%2FAdmin">
+                                        <i class="fa fa-fw fa-power-off"></i>
+                                        Restart application
+                                    </a>
+                                </div>
+                            </li>
+
+                            <form action="/backend/Admin/Common/LanguageSelected" class="hide" data-ajax="true"
+                                data-ajax-complete="onLanguageChangedRequestCompleted();" id="form-languageselector"
+                                method="post"><input id="customerlanguage" name="customerlanguage" type="hidden"
+                                    value="2"></form>
+                            <li class="nav-item dropdown d-none d-md-block">
+                                <a class="nav-link dropdown-toggle navbar-tool" href="javascript:void(0)"
+                                    title="English" data-toggle="dropdown">
+                                    <i class="icm icm-earth navbar-icon"></i>
+                                    <span class="pl-2">EN</span>
+                                </a>
+                                <div id="language-selector" class="dropdown-menu dropdown-menu-right">
+                                    <a href="javascript:void(0)" data-lang-id="1" class="dropdown-item">
+                                        <img src="asset/img/flags/de.png" alt="Deutsch">
+                                        Deutsch
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="2" class="dropdown-item disabled">
+                                        <img src="asset/img/flags/us.png" alt="English">
+                                        English
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="3" class="dropdown-item">
+                                        <img src="asset/img/flags/nl.png" alt="Dutch">
+                                        Dutch
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="4" class="dropdown-item">
+                                        <img src="asset/img/flags/fr.png" alt="French">
+                                        French
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="5" class="dropdown-item">
+                                        <img src="asset/img/flags/ru.png" alt="Russian">
+                                        Russian
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="6" class="dropdown-item">
+                                        <img src="asset/img/flags/jp.png" alt="Japanese">
+                                        Japanese
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="7" class="dropdown-item">
+                                        <img src="asset/img/flags/es.png" alt="Español">
+                                        Español
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="8" class="dropdown-item">
+                                        <img src="asset/img/flags/sa.png" alt="Arabic (Saudi Arabia)">
+                                        Arabic (Saudi Arabia)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="9" class="dropdown-item">
+                                        <img src="asset/img/flags/in.png" alt="Hindi (India)">
+                                        Hindi (India)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="10" class="dropdown-item">
+                                        <img src="asset/img/flags/tr.png" alt="Turkish (Turkey)">
+                                        Turkish (Turkey)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="11" class="dropdown-item">
+                                        <img src="asset/img/flags/cn.png" alt="Chinese (Simplified, PRC)">
+                                        Chinese (Simplified, PRC)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="12" class="dropdown-item">
+                                        <img src="asset/img/flags/it.png" alt="Italian (Italy)">
+                                        Italian (Italy)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="13" class="dropdown-item">
+                                        <img src="asset/img/flags/pl.png" alt="Polish (Poland)">
+                                        Polish (Poland)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="14" class="dropdown-item">
+                                        <img src="asset/img/flags/pt.png" alt="Portuguese (Portugal)">
+                                        Portuguese (Portugal)
+                                    </a>
+                                    <a href="javascript:void(0)" data-lang-id="15" class="dropdown-item">
+                                        <img src="asset/img/flags/gr.png" alt="Greek (Greece)">
+                                        Greek (Greece)
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <a href="/backend/Admin/Language/List" class="dropdown-item manage-languages">
+                                        Manage languages
+                                    </a>
+                                </div>
+                            </li>
+                            <script>
+                                $(document).ready(function () {
+                                    $("#language-selector > .dropdown-item:not(.disabled, .manage-languages)").on('click', function () {
+                                        var el = $(this);
+                                        var langId = el.data("lang-id");
+                                        $("#customerlanguage").val(langId);
+                                        $("#form-languageselector").submit();
+                                    });
+                                });
+
+                                function onLanguageChangedRequestCompleted() {
+                                    location.reload();
+                                }
+                            </script>
+
+
+                            <li id="navtool-help" class="nav-item dropdown d-none d-md-block">
+                                <a class="nav-link dropdown-toggle navbar-tool" href="javascript:void(0)" title="Help"
+                                    data-toggle="dropdown">
+                                    <i class="icm icm-bubble-question navbar-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="https://docs.smartstore.com/display/SMNET32/"
+                                        data-lang="en" target="help">
+                                        <i class="fa fa-fw fa-book"></i>
+                                        Documentation
+                                    </a>
+                                    <a class="dropdown-item"
+                                        href="http://community.smartstore.com/index.php?/&amp;k=880ea6a14ea49e853634fbdc5015a024&amp;setlanguage=1&amp;cal_id=&amp;langid=1"
+                                        data-lang="en" target="help">
+                                        <i class="fa fa-fw fa-comment"></i>
+                                        Community
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/backend/Admin/Home/About">
+                                        <i class="fa fa-fw fa-info-circle"></i>
+                                        About SmartStore.NET
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown ml-md-3">
+                                <a id="current-user" class="nav-link dropdown-toggle navbar-tool" data-toggle="dropdown"
+                                    title="demo" href="account.html">
+
+                                    <i class="icm icm-user navbar-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="account.html">
+                                        <i class="fa fa-fw fa-user"></i>
+                                        Account
+                                    </a>
+                                    <a class="dropdown-item" href="/backend/logout">
+                                        <i class="fal fa-fw fa-sign-out-alt"></i>
+                                        Logout?
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </nav>
+
+
+                <script type="text/javascript">
+
+                    $(function () {
+
+                        $("#restart-application").on('click', function (e) {
+                            e.preventDefault();
+                            $.throbber.show({
+                                message: "Restarting the application...",
+                                callback: function () {
+                                    setLocation($(e.target).data("url"));
+
+                                }
+                            });
+                            return false;
+                        });
+
+                        // add mainmenu tooltips;
+                        $('#tools [rel=tooltip]').tooltip({
+                            placement: 'bottom'
+                        });
+
+                    });
+
+                </script>
+
+
+                <div id="breadcrumb">
+                    <!-- SiteMapPath here-->
+
+                </div>
+            </header>
+
+
+
+            <div id="content">
+                <div class="cph">
+
+
+                    <form action="/backend/Admin/Security/Permissions" method="post">
+                        <div class="section-header">
+                            <div class="title">
+                                <i class="fa fa-lock"></i>
+                                Access control list
+                            </div>
+                            <div class="options">
+                                <button type="submit" name="save" value="save" class="btn btn-warning">
+                                    <i class="fa fa-check"></i>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+                        <table class="adminContent">
+                            <tr>
+                                <td>
+                                    <div class="table-responsive">
+                                        <table class="table admin-table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="xt-header align-top" scope="col">
+                                                        <span class="t-link">Permission name</span>
+                                                    </th>
+                                                    <th class="xt-header text-center" scope="col" data-id="1">
+                                                        <span class="t-link">
+                                                            <span class="d-block">Administratoren</span>
+                                                            <span class="d-block"><input type="checkbox"
+                                                                    class="master-checkbox" /></span>
+                                                        </span>
+                                                    </th>
+                                                    <th class="xt-header text-center" scope="col" data-id="2">
+                                                        <span class="t-link">
+                                                            <span class="d-block">Foren Moderatoren</span>
+                                                            <span class="d-block"><input type="checkbox"
+                                                                    class="master-checkbox" /></span>
+                                                        </span>
+                                                    </th>
+                                                    <th class="xt-header text-center" scope="col" data-id="4">
+                                                        <span class="t-link">
+                                                            <span class="d-block">G&#228;ste</span>
+                                                            <span class="d-block"><input type="checkbox"
+                                                                    class="master-checkbox" /></span>
+                                                        </span>
+                                                    </th>
+                                                    <th class="xt-header text-center" scope="col" data-id="3">
+                                                        <span class="t-link">
+                                                            <span class="d-block">Registriert</span>
+                                                            <span class="d-block"><input type="checkbox"
+                                                                    class="master-checkbox" /></span>
+                                                        </span>
+                                                    </th>
+                                                    <th class="xt-header text-center" scope="col" data-id="5">
+                                                        <span class="t-link">
+                                                            <span class="d-block">Super Administrators</span>
+                                                            <span class="d-block"><input type="checkbox"
+                                                                    class="master-checkbox" /></span>
+                                                        </span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Catalog</span>
+                                                        <span>Admin area. Manage Catalog</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageCatalog" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageCatalog" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageCatalog" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageCatalog" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageCatalog" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage ACL</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageACL" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageACL" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageACL" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageACL" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageACL" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Activity Log</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageActivityLog" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageActivityLog" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageActivityLog" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageActivityLog" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageActivityLog" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Countries</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageCountries" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageCountries" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageCountries" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageCountries" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageCountries" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Currencies</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageCurrencies" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageCurrencies" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageCurrencies" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageCurrencies" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageCurrencies" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Delivery Times</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageDeliveryTimes" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageDeliveryTimes" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageDeliveryTimes" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageDeliveryTimes" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageDeliveryTimes" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Email Accounts</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageEmailAccounts" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageEmailAccounts" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageEmailAccounts" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageEmailAccounts" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageEmailAccounts" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Exports</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageExports" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageExports" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageExports" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageExports" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageExports" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage External Authentication Methods</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageExternalAuthenticationMethods" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageExternalAuthenticationMethods"
+                                                            name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageExternalAuthenticationMethods"
+                                                            name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageExternalAuthenticationMethods"
+                                                            name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageExternalAuthenticationMethods"
+                                                            name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Imports</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageImports" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageImports" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageImports" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageImports" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageImports" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Languages</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageLanguages" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageLanguages" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageLanguages" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageLanguages" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageLanguages" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Maintenance</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageMaintenance" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageMaintenance" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageMaintenance" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageMaintenance" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageMaintenance" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Measures</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageMeasures" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageMeasures" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageMeasures" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageMeasures" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageMeasures" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Message Queue</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageMessageQueue" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageMessageQueue" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageMessageQueue" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageMessageQueue" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageMessageQueue" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Payment Methods</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManagePaymentMethods" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManagePaymentMethods" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManagePaymentMethods" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManagePaymentMethods" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManagePaymentMethods" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Plugins</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManagePlugins" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManagePlugins" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManagePlugins" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManagePlugins" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManagePlugins" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Schedule Tasks</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageScheduleTasks" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageScheduleTasks" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageScheduleTasks" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageScheduleTasks" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageScheduleTasks" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Settings</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageSettings" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageSettings" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageSettings" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageSettings" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageSettings" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Shipping Settings</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageShippingSettings" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageShippingSettings" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageShippingSettings" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageShippingSettings" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageShippingSettings" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Stores</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageStores" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageStores" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageStores" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageStores" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageStores" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage System Log</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageSystemLog" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageSystemLog" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageSystemLog" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageSystemLog" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageSystemLog" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Tax Settings</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageTaxSettings" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageTaxSettings" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageTaxSettings" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageTaxSettings" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageTaxSettings" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Themes</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageThemes" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageThemes" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageThemes" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageThemes" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageThemes" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Manage Url Records</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageUrlRecords" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageUrlRecords" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageUrlRecords" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageUrlRecords" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageUrlRecords" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Configuration</span>
+                                                        <span>Admin area. Upload Pictures</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="UploadPictures" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="UploadPictures" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="UploadPictures" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="UploadPictures" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="UploadPictures" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Content Management</span>
+                                                        <span>Admin area. Manage Blog</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageBlog" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageBlog" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageBlog" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageBlog" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageBlog" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Content Management</span>
+                                                        <span>Admin area. Manage Forums</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageForums" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageForums" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageForums" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageForums" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageForums" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Content Management</span>
+                                                        <span>Admin area. Manage Menus</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageMenus" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageMenus" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageMenus" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageMenus" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageMenus" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Content Management</span>
+                                                        <span>Admin area. Manage Message Templates</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageMessageTemplates" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageMessageTemplates" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageMessageTemplates" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageMessageTemplates" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageMessageTemplates" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Content Management</span>
+                                                        <span>Admin area. Manage News</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageNews" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageNews" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageNews" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageNews" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageNews" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Content Management</span>
+                                                        <span>Admin area. Manage Polls</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManagePolls" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManagePolls" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManagePolls" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManagePolls" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManagePolls" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Content Management</span>
+                                                        <span>Admin area. Manage Topics</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageTopics" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageTopics" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageTopics" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageTopics" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageTopics" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Content Management</span>
+                                                        <span>Admin area. Manage Widgets</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageWidgets" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageWidgets" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageWidgets" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageWidgets" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageWidgets" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Customers</span>
+                                                        <span>Admin area. Allow Customer Impersonation</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="AllowCustomerImpersonation" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="AllowCustomerImpersonation" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="AllowCustomerImpersonation" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="AllowCustomerImpersonation" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="AllowCustomerImpersonation" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Customers</span>
+                                                        <span>Admin area. Manage Customer Roles</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageCustomerRoles" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageCustomerRoles" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageCustomerRoles" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageCustomerRoles" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageCustomerRoles" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Customers</span>
+                                                        <span>Admin area. Manage Customers</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageCustomers" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageCustomers" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageCustomers" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageCustomers" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageCustomers" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Orders</span>
+                                                        <span>Admin area. Manage Gift Cards</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageGiftCards" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageGiftCards" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageGiftCards" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageGiftCards" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageGiftCards" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Orders</span>
+                                                        <span>Admin area. Manage Orders</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageOrders" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageOrders" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageOrders" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageOrders" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageOrders" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Orders</span>
+                                                        <span>Admin area. Manage Return Requests</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageReturnRequests" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageReturnRequests" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageReturnRequests" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageReturnRequests" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageReturnRequests" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-warning">Plugin</span>
+                                                        <span>Plugins. Access Import Biz.</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="AccessImportBiz" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="AccessImportBiz" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="AccessImportBiz" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="AccessImportBiz" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="AccessImportBiz" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-warning">Plugin</span>
+                                                        <span>Plugins. Manage Debitoor Client.</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageDebitoor" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageDebitoor" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageDebitoor" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageDebitoor" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageDebitoor" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-warning">Plugin</span>
+                                                        <span>Plugins. Manage MegaSearch.</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageMegaSearch" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageMegaSearch" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageMegaSearch" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageMegaSearch" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageMegaSearch" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-warning">Plugin</span>
+                                                        <span>Plugins. Manage News Importer.</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageNewsImporter" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageNewsImporter" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageNewsImporter" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageNewsImporter" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageNewsImporter" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-warning">Plugin</span>
+                                                        <span>Plugins. Manage Power BI.</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManagePowerBi" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManagePowerBi" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManagePowerBi" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManagePowerBi" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManagePowerBi" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-warning">Plugin</span>
+                                                        <span>Plugins. Manage Shop Connector.</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageShopConnector" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageShopConnector" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageShopConnector" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageShopConnector" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageShopConnector" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-warning">Plugin</span>
+                                                        <span>Plugins. Manage Stories.</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageStories" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageStories" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageStories" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageStories" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageStories" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-warning">Plugin</span>
+                                                        <span>Plugins. Manage Wallet.</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageWallet" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageWallet" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageWallet" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageWallet" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageWallet" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-warning">Plugin</span>
+                                                        <span>Plugins. Manage Web-API.</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageWebApi" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageWebApi" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageWebApi" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageWebApi" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageWebApi" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Promo</span>
+                                                        <span>Admin area. Manage Affiliates</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageAffiliates" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageAffiliates" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageAffiliates" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageAffiliates" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageAffiliates" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Promo</span>
+                                                        <span>Admin area. Manage Campaigns</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageCampaigns" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageCampaigns" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageCampaigns" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageCampaigns" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageCampaigns" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Promo</span>
+                                                        <span>Admin area. Manage Discounts</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageDiscounts" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageDiscounts" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageDiscounts" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageDiscounts" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageDiscounts" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-info">Promo</span>
+                                                        <span>Admin area. Manage Newsletter Subscribers</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="ManageNewsletterSubscribers" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="ManageNewsletterSubscribers" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="ManageNewsletterSubscribers" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="ManageNewsletterSubscribers" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="ManageNewsletterSubscribers" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-success">Public Store</span>
+                                                        <span>Public store. Allow navigation</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="PublicStoreAllowNavigation" name="allow_1"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="PublicStoreAllowNavigation" name="allow_2"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="PublicStoreAllowNavigation" name="allow_4"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="PublicStoreAllowNavigation" name="allow_3"
+                                                            checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="PublicStoreAllowNavigation" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-success">Public Store</span>
+                                                        <span>Public store. Display Prices</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="DisplayPrices" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="DisplayPrices" name="allow_2" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="DisplayPrices" name="allow_4" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="DisplayPrices" name="allow_3" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="DisplayPrices" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-success">Public Store</span>
+                                                        <span>Public store. Enable shopping cart</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="EnableShoppingCart" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="EnableShoppingCart" name="allow_2" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="EnableShoppingCart" name="allow_4" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="EnableShoppingCart" name="allow_3" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="EnableShoppingCart" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-success">Public Store</span>
+                                                        <span>Public store. Enable wishlist</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="EnableWishlist" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="EnableWishlist" name="allow_2" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="EnableWishlist" name="allow_4" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="EnableWishlist" name="allow_3" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="EnableWishlist" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge badge-success">Standard</span>
+                                                        <span>Access admin area</span>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_1" class="allow_1" type="checkbox"
+                                                            value="AccessAdminPanel" name="allow_1" checked=checked />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_2" class="allow_2" type="checkbox"
+                                                            value="AccessAdminPanel" name="allow_2" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_4" class="allow_4" type="checkbox"
+                                                            value="AccessAdminPanel" name="allow_4" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_3" class="allow_3" type="checkbox"
+                                                            value="AccessAdminPanel" name="allow_3" />
+                                                    </td>
+                                                    <td align="center">
+                                                        <input id="allow_5" class="allow_5" type="checkbox"
+                                                            value="AccessAdminPanel" name="allow_5" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <script type="text/javascript">
+
+                        $(document).ready(function () {
+
+                            // Toggle all checkboxes of a column.
+                            $('input[type=checkbox].master-checkbox').click(function (e) {
+                                var id = $(this).closest('th').attr('data-id'),
+                                    isChecked = $(this).is(':checked');
+
+                                $(this).closest('table').find('input[type=checkbox][id=allow_' + id + ']').attr('checked', isChecked);
+                            });
+
+                        });
+                    </script>
+                </div>
+                <div id="ajax-busy">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script type="text/javascript"
+        src="http://duijnisveld.wpengine.com/wp-content/themes/duijnisveld-kascontructies/scripts/min/theme-min.js?ver=4.5.3"></script>
+
+    <script src="asset/js/script2.js"></script>
+    <script src="asset/js/telerik.common.min.js"></script>
+    <script src="asset/js/telerik.textbox.min.js"></script>
+    <script src="asset/js/telerik.calendar.min.js"></script>
+    <script src="asset/js/telerik.datepicker.min.js"></script>
+    <script src="asset/js/telerik.grid.min.js"></script>
+
+
+    <script src="asset/js/main.js"></script>
+
+</body>
+
+</html>

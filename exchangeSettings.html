@@ -1,0 +1,267 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>Control Panel</title>
+    <meta charset="utf-8">
+    <link rel=icon href="asset/img/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="asset/css/icm.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/theme.css" type="text/css">
+    <script src="asset/js/script2.js" type="text/javascript"></script>
+    <script src="asset/js/script1.js"></script>
+    <script>
+        window.Res = {
+            "Common.Notification": "Alert",
+            "Common.Close": "Close",
+            "Common.On": "On",
+            "Common.OK": "OK",
+            "Common.Cancel": "Cancel",
+            "Common.Off": "Off",
+            "Products.Longdesc.More": "Show more",
+            "Products.Longdesc.Less": "Show less",
+            "Jquery.Validate.Email": "Please enter a valid email address.",
+            "Jquery.Validate.Required": "This field is required.",
+            "Jquery.Validate.Remote": "Please fix this field.",
+            "Jquery.Validate.Url": "Please enter a valid URL.",
+            "Jquery.Validate.Date": "Please enter a valid date.",
+            "Jquery.Validate.DateISO": "Please enter a valid date (ISO).",
+            "Jquery.Validate.Number": "Please enter a valid number.",
+            "Jquery.Validate.Digits": "Please enter only digits.",
+            "Jquery.Validate.Creditcard": "Please enter a valid credit card number.",
+            "Jquery.Validate.Equalto": "Please enter the same value again.",
+            "Jquery.Validate.Maxlength": "Please enter no more than {0} characters.",
+            "Jquery.Validate.Minlength": "Please enter at least {0} characters.",
+            "Jquery.Validate.Rangelength": "Please enter a value between {0} and {1} characters long.",
+            "jquery.Validate.Range": "Please enter a value between {0} and {1}.",
+            "Jquery.Validate.Max": "Please enter a value less than or equal to {0}.",
+            "Jquery.Validate.Min": "Please enter a value greater than or equal to {0}.",
+            "Admin.Common.AreYouSure": "Are you sure?",
+        };
+    </script>
+    <script>
+        try {
+            if (typeof navigator === 'undefined') navigator = {};
+            html = document.documentElement;
+            if (/Edge\/\d+/.test(navigator.userAgent)) { html.className += ' edge' }
+            else if ('mozMatchesSelector' in html) { html.className += ' moz' }
+            else if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) { html.className += ' ios' }
+            else if ('webkitMatchesSelector' in html) { html.className += ' wkit' };
+            html.className += (this.top === this.window ? ' not-' : ' ') + 'framed';
+        } catch (e) { }
+    </script>
+    <script>var ieMode = 0; try { if (document.documentMode) { ieMode = document.documentMode; html.className += ' ie iepost8 ie' + document.documentMode } else { html.className += ' not-ie' }; } catch (e) { }; navigator.isIE = ieMode</script>
+
+
+</head>
+
+<body>
+    <div id="page">
+        <div class="alert warning-panel-message">
+
+            This is the backend for the <a href="/backend/" target="_blank">My-SmartStore Demoshop</a>. This site gets
+            reset to its original state regularly.
+            Note that other demo users may have made changes to the site since it was last reset.
+            The next reset will be in about 84 minute(s).
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+
+        <div class="page-main">
+            <header id="header">
+
+                <script type="text/javascript">
+
+                    $(function () {
+
+                        $("#restart-application").on('click', function (e) {
+                            e.preventDefault();
+                            $.throbber.show({
+                                message: "Restarting the application...",
+                                callback: function () {
+                                    setLocation($(e.target).data("url"));
+
+                                }
+                            });
+                            return false;
+                        });
+
+                        // add mainmenu tooltips;
+                        $('#tools [rel=tooltip]').tooltip({
+                            placement: 'bottom'
+                        });
+
+                    });
+
+                </script>
+
+
+                <div id="breadcrumb">
+                    <!-- SiteMapPath here-->
+
+                </div>
+            </header>
+
+
+
+            <div id="content">
+                <div class="cph">
+
+
+                    <form action="/backend/Admin/Setting/DataExchange" method="post">
+                        <div class="section-header">
+                            <div class="title">
+                                <i class="fa fa-exchange-alt"></i>
+                                Data exchange
+                            </div>
+                            <div class="options">
+                                <button type="submit" name="save" value="save" class="btn btn-warning">
+                                    <i class="fa fa-check"></i>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="multi-store-scope well px-0 py-2">
+                            <table class="adminContent adminContent-boxed">
+                                <tr>
+                                    <td class="adminTitle">
+                                        <div class='ctl-label'><label for="store-scope-configuration">Multi-store
+                                                configuration for</label></div>
+                                    </td>
+                                    <td class="adminData">
+                                        <select id="store-scope-configuration" name="store-scope-configuration"
+                                            onchange="setLocation(this.value);">
+                                            <option selected="selected"
+                                                value="/backend/Admin/Setting/ChangeStoreScopeConfiguration?storeid=0&amp;returnUrl=%2Fbackend%2FAdmin%2FSetting%2FDataExchange">
+                                                All stores</option>
+                                            <option
+                                                value="/backend/Admin/Setting/ChangeStoreScopeConfiguration?storeid=1&amp;returnUrl=%2Fbackend%2FAdmin%2FSetting%2FDataExchange">
+                                                SmartStore.NET Demo Shop</option>
+                                            <option
+                                                value="/backend/Admin/Setting/ChangeStoreScopeConfiguration?storeid=2&amp;returnUrl=%2Fbackend%2FAdmin%2FSetting%2FDataExchange">
+                                                SmartStore.NET Demo-Shop 2</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <script>
+                            $(function () {
+                                $('#store-scope-configuration').selectWrapper();
+                            });
+                        </script>
+                        <div class="validation-summary-valid" data-valmsg-summary="true">
+                            <ul>
+                                <li style="display:none"></li>
+                            </ul>
+                        </div>
+                        <table class="adminContent">
+                            <tr>
+                                <td class="adminTitle">
+                                    <div class='ctl-label'><label for="MaxFileNameLength">Maximum length of file and
+                                            folder names</label><a class="hint" href="#" onclick="return false;"
+                                            tabindex="-1"
+                                            title="Specifies the maximum length of file and folder names created during an import or export."><i
+                                                class="fa fa-question-circle"></i></a></div>
+                                </td>
+                                <td class="adminData">
+
+
+                                    <div class="numerictextbox-group flex-grow-1">
+                                        <div class="t-widget t-numerictextbox"><input class="t-input" data-val="true"
+                                                data-val-number="The field &#39;Maximum length of file and folder names&#39; must be a number."
+                                                id="MaxFileNameLength" name="MaxFileNameLength" type="text"
+                                                value="50" /><a class="t-link t-icon t-arrow-up" href="#" tabindex="-1"
+                                                title="Increase value">Increment</a><a
+                                                class="t-link t-icon t-arrow-down" href="#" tabindex="-1"
+                                                title="Decrease value">Decrement</a></div>
+
+                                    </div>
+                                    <span class="field-validation-valid" data-valmsg-for="MaxFileNameLength"
+                                        data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="admin-config-group">
+                                        <div class="title">Import</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    <div class='ctl-label'><label for="ImageImportFolder">Image folder (relative
+                                            path)</label><a class="hint" href="#" onclick="return false;" tabindex="-1"
+                                            title="Specifies a relative path to a folder with images to be imported (e.g. Content\Images)."><i
+                                                class="fa fa-question-circle"></i></a></div>
+                                </td>
+                                <td class="adminData">
+                                    <input class="text-box single-line" id="ImageImportFolder" name="ImageImportFolder"
+                                        type="text" value="" />
+                                    <span class="field-validation-valid" data-valmsg-for="ImageImportFolder"
+                                        data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    <div class='ctl-label'><label for="ImageDownloadTimeout">Timeout for image download
+                                            (minutes)</label><a class="hint" href="#" onclick="return false;"
+                                            tabindex="-1"
+                                            title="Specifies the timeout for the image download in minutes."><i
+                                                class="fa fa-question-circle"></i></a></div>
+                                </td>
+                                <td class="adminData">
+
+
+                                    <div class="numerictextbox-group flex-grow-1">
+                                        <div class="t-widget t-numerictextbox"><input class="t-input" data-val="true"
+                                                data-val-number="The field &#39;Timeout for image download (minutes)&#39; must be a number."
+                                                id="ImageDownloadTimeout" name="ImageDownloadTimeout" type="text"
+                                                value="10" /><a class="t-link t-icon t-arrow-up" href="#" tabindex="-1"
+                                                title="Increase value">Increment</a><a
+                                                class="t-link t-icon t-arrow-down" href="#" tabindex="-1"
+                                                title="Decrease value">Decrement</a></div>
+
+                                        <span class="numerictextbox-postfix">Minutes</span>
+                                    </div>
+                                    <span class="field-validation-valid" data-valmsg-for="ImageDownloadTimeout"
+                                        data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div id="ajax-busy">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <script src="asset/js/telerik.common.min.js"></script>
+    <script src="asset/js/telerik.textbox.min.js"></script>
+    <script src="asset/js/telerik.calendar.min.js"></script>
+    <script src="asset/js/telerik.datepicker.min.js"></script>
+    <script src="asset/js/fileUpload.js"></script>
+    <script src="asset/js/linkBuilder.js"></script>
+    <script src="asset/js/modernizr-custom.js"></script>
+
+    <script src="asset/js/main.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        jQuery(document).ready(function () {
+            jQuery('#MaxFileNameLength').tTextBox({ val: 50, step: 1, minValue: null, maxValue: null, digits: 0, groupSize: 3, negative: 1, text: 'Enter value', type: 'numeric' });
+            jQuery('#ImageDownloadTimeout').tTextBox({ val: 10, step: 1, minValue: null, maxValue: null, digits: 0, groupSize: 3, negative: 1, text: 'Enter value', type: 'numeric' });
+        });
+        //]]>
+    </script>
+
+</body>
+
+</html>
